@@ -98,7 +98,7 @@ That's it!  The Settings Page is now configured.
 **Download**
 ------------
 
-Latest stable version is version 0.9 available from http://wordpress.org/extend/plugins/serial-posts-plugin/ 
+Latest stable version is version 0.9 available from http://wordpress.org/extend/plugins/serial-posts/ 
 
 
 **Troubleshooting**
