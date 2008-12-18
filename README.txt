@@ -38,7 +38,7 @@ Comprehensive information on installing, configuring and using the plugin can be
 == Installation ==
 
 1. Download the latest version of the plugin to your computer.
-2. Extract and upload the folder **serialposts** and its contents to your **/wp-content/plugins/** directory.  Please ensure that you do not rename any folder or filenames in the process.
+2. Extract and upload the folder **serial-posts** and its contents to your **/wp-content/plugins/** directory.  Please ensure that you do not rename any folder or filenames in the process.
 3. Activate the plugin in your Dashboard via the Admin **Plugins** menu.
 4. Configure the plugin's Settings page in Admin **Settings**.
 
