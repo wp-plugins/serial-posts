@@ -67,21 +67,21 @@ Further information can be found at http://www.studiograsshopper.ch/serial-posts
 **Configuring the Options page**
 --------------------------------
  
-1. In the Dashboard, go to Settings and open the Serial Posts Configuration page.
+In the Dashboard, go to Settings and open the Serial Posts Configuration page.
 
-2. List Display options. This is where you can customise the Serial Posts heading and list of posts. The Heading is made up of three elements: "Text before Serial name" "Serial Name" "Text after Serial name". 
+**List Display options**. This is where you can customise the Serial Posts heading and list of posts. The Heading is made up of three elements: "Text before Serial name" "Serial Name" "Text after Serial name". 
 
-2.1 Text before Serial name: Enter the text that you would like to appear in the Heading BEFORE the Serial name. If you don't want to show any text before the Serial name, just blank out the field before saving your settings.
+**Text before Serial name**: Enter the text that you would like to appear in the Heading BEFORE the Serial name. If you don't want to show any text before the Serial name, just blank out the field before saving your settings.
 
-2.2 Text after Serial name: Enter the text that you would like to appear in the Heading AFTER the Serial name. If you don't want to show any text after the Serial name, just blank out the field before saving your settings.
+**Text after Serial name**: Enter the text that you would like to appear in the Heading AFTER the Serial name. If you don't want to show any text after the Serial name, just blank out the field before saving your settings.
 
-2.3 List &lt;ul&gt; class: To allow even greater control over the styling of the unordered list, you may specify a class name for the list's &lt;ul&gt; tag. The default is serial-posts. Note that the plugin replaces any whitespace with hyphens.
+**List &lt;ul&gt; class**: To allow even greater control over the styling of the unordered list, you may specify a class name for the list's &lt;ul&gt; tag. The default is serial-posts. Note that the plugin replaces any whitespace with hyphens.
 
-3. Include current post in list of Serial Posts: Check the box if you want to include the currently viewed post in the list of Serial Posts. Default is CHECKED. If you uncheck this box, the currently viewed post will not appear in the Serial Posts list.
+**Include current post in list of Serial Posts**: Check the box if you want to include the currently viewed post in the list of Serial Posts. Default is CHECKED. If you uncheck this box, the currently viewed post will not appear in the Serial Posts list.
 
-4. Show current post as a link: If you have checked "Include current post in list of Serial Posts", you may check this box if you want the currently viewed post to be shown as a link. Default is UNCHECKED. If you check this box, the currently viewed post will appear as a link in the Serial Posts list.
+**Show current post as a link**: If you have checked "Include current post in list of Serial Posts", you may check this box if you want the currently viewed post to be shown as a link. Default is UNCHECKED. If you check this box, the currently viewed post will appear as a link in the Serial Posts list.
 
-5. Reset all options to the Default settings: Check this box if you want to rest all the options to their default settings.
+**Reset all options to the Default settings**: Check this box if you want to rest all the options to their default settings.
 
 That's it!  The Settings Page is now configured.
 
@@ -90,9 +90,9 @@ That's it!  The Settings Page is now configured.
 
 **So, what does it do?**
 ------------------------
-*Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
-*The position of the Serial Posts list on your page is determined by where you insert the Serial Posts template tag in your single.php or index.php template file.
-*Designed for authors who wish to group posts into series - independantly of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings.
+* Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
+* The position of the Serial Posts list on your page is determined by where you insert the Serial Posts template tag in your single.php or index.php template file.
+* Designed for authors who wish to group posts into series - independantly of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings.
 
 
 **Download**
