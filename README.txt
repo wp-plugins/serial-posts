@@ -1,13 +1,13 @@
 === Serial Posts ===
 
-Version: 0.9
+Version: 1.0
 Author: Ade Walker, Studiograsshopper
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/wordpress-plugins/serial-posts-plugin/
 Tags: posts,series,serial,related,post listings,custom
 Requires at least: 2.5
 Tested up to: 2.7 (WP) and 2.6.5 (WPMU)
-Stable tag: 0.9
+Stable tag: 1.0
 
 Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
 
@@ -21,7 +21,8 @@ This plugin allows you to assign a Serial name, using custom fields, to your pos
 ----------------
 
 * Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
-* The position of the Serial Posts list on your page is determined by where you insert the Serial Posts template tag in your single.php or index.php template file.
+* The Serial Posts list is added to your single post page either by inserting the [serialposts] shortcode in the Post editor or by using the Serial Posts template tag in your single.php or index.php theme file.
+* The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post, or where you insert the Serial Posts template tag in your single.php or index.php template file, depending on which method is used (shortcode or template tag).
 * You can create as many different Serials as you wish.
 * User options for including the currently viewed post in the list, with or without a link.
 * Configurable Heading for the Serial Posts list.
@@ -53,15 +54,21 @@ You can use the Wordpress Automatic Plugin upgrade link in the Admin Plugins men
 
 == Using the plugin == 
 
-Add this template tag to your single post theme template file, typically single.php or index.php, wherever you want to display the list of posts. This tag must appear within the Loop.
+The plugin provides two methods: a shortcode and a template tag, either of which may be used. It is recommended that you use one or the other, but not both, in accordance with your needs and preferences.
+
+**Template tag:** Add this template tag to your single post theme template file, typically single.php or index.php, wherever you want to display the list of posts. This tag must appear within the Loop.
 
 &lt;?php serial_posts(); ?&gt;
+
+**Shortcode:** Add this shortcode directly into the post editor when writing or editing a post.
+
+[serialposts]
 
 
 == Configuration and set-up ==
 
 
-Further information can be found at http://www.studiograsshopper.ch/serial-posts-configuration/
+Further information can be found at http://www.studiograsshopper.ch/serial-posts-configuration/ and a comprehensive "how to" at http://www.studiograsshopper.ch/serial-posts-plugin-tutorial/
 
 
 **Configuring the Options page**
@@ -91,7 +98,7 @@ That's it!  The Settings Page is now configured.
 **So, what does it do?**
 ------------------------
 * Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
-* The position of the Serial Posts list on your page is determined by where you insert the Serial Posts template tag in your single.php or index.php template file.
+* The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post, or where you insert the Serial Posts template tag in your single.php or index.php template file, depending on which method is used (shortcode or template tag).
 * Designed for authors who wish to group posts into series - independantly of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings.
 
 
@@ -122,6 +129,8 @@ Thanks for downloading the plugin.  Enjoy!
 
 
 == Release History ==
+
+Version 1.0 31/12/2008	Added shortcode and fixed xhtml output error.
 
 Version 0.9	17/12/2008	Public release
 

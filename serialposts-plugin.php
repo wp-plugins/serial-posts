@@ -2,7 +2,7 @@
 /*
 Plugin Name: Serial Posts Plugin
 Plugin URI: http://www.studiograsshopper.ch/wordpress-plugins/serial-posts-plugin/
-Version: 0.9
+Version: 1.0
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
@@ -26,6 +26,9 @@ Description: Allows you to assign posts to a Serial, using custom fields, and th
 
 /* Version History
 
+	1.0			- Added shortcode for use in posts
+				- Fixed xhtml error cauased by rogue closing </a> tag in list.
+	
 	0.9			- Public release
 	
 	0.2			- Added more options for the list title
@@ -37,7 +40,7 @@ Description: Allows you to assign posts to a Serial, using custom fields, and th
 */
 
 /* Dev Notes 
-* Plugin folder:		serialposts-plugin
+* Plugin folder:		serial-posts
 * Plugin file:	 		serialposts-plugin.php
 * Var prefix: 			$serp
 * Function prefix:		$serp
@@ -67,7 +70,7 @@ define( 'SERP_URL', WP_PLUGIN_URL.'/serialposts-plugin' );
 
 
 /* Set constant for plugin version number */
-define ( 'SERP_VER', '0.9' );
+define ( 'SERP_VER', '1.0' );
 
 
 /* Internationalization functionality */
@@ -83,8 +86,8 @@ function serp_load_textdomain() {
 }
 
 
-/* Function to create serial posts lists */
-function serial_posts() {
+/* Function to create serial posts list */
+function serial_posts_build() {
 	
 	global $id;
 	
@@ -92,16 +95,16 @@ function serial_posts() {
 	and get serial_name of current post */
 	$serial_value = get_post_meta($id, 'Serial', true);
 	
-	/* Replace whitespace to use Serial Name as CSS class name */
-	$serial_value_css = str_replace( " ", "-", $serial_value );
-	
-	
+	/* If we have a Serial assigned to this post, let's do our stuff */
 	if ( $serial_value ) {
+	
+		/* Replace whitespace to use Serial Name as CSS class name */
+		$serial_value_css = str_replace( " ", "-", $serial_value );
 	
 		/* Get plugin options */
 		$options = get_option('serp_plugin_settings');
 	
-		/* Build mySQL query to pull in custom images */
+		/* Build mySQL query to pull in custom fields */
 		/* Instantiate the wpdb object */
 		global $wpdb;
 	
@@ -132,10 +135,8 @@ function serial_posts() {
 			);
 		}
 
-		/* Print out the results */
+		/* Build the list elements */
 		if ($findposts):
-			/* Output the div container for the list */
-			echo '<div id="' . $serial_value_css . '">' . "\n";
 			
 			/* Get the admin defined parts of the list heading */
 			$serp_pre_text = '';
@@ -151,43 +152,67 @@ function serial_posts() {
 				$serp_post_text = '<span class="serial-post-text">' . stripslashes($options['post_text']) . '</span>';
 			}
 			
-			/* Output the list heading */
-			echo '<h3>' . $serp_pre_text . $serp_serial_value . $serp_post_text . '</h3>' . "\n";
+			/* Create the div container for the list */
+			$serp_div = '<div id="' . $serial_value_css . '">' . "\n";
+						
+			/* Create the list heading */
+			$serp_heading = '<h3>' . $serp_pre_text . $serp_serial_value . $serp_post_text . '</h3>' . "\n";
 			
-			/* Output the ul container for the list */
-			echo '<ul class="' . $options['ul_class'] . '">' . "\n";
+			/* Create the ul container for the list */
+			$serp_list_ul = '<ul class="' . $options['ul_class'] . '">' . "\n";
 			
+			/* Create the post list as an array */
+			$serp_list_li = array();
+			
+			/* Populate the post list array */
 			foreach ($findposts as $findpost):
 				if ( ( ( $findpost->ID ) == $id ) && ( $options['link_current'] == "1" ) ) {
 					// we have the current post and link is to be shown
-					echo '<li class="' . $serial_value_css . ' current-active"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">';
-					echo $findpost->post_title;
-					echo '</a></li>' . "\n";
+					$serp_list_li[] = '<li class="' . $serial_value_css . ' current-active"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' . $findpost->post_title . '</a></li>' . "\n";
 				} elseif ( ( $findpost->ID ) != $id ) {
 					// all other posts except the current post
-					echo '<li class="' . $serial_value_css . '"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">';
-					echo $findpost->post_title;
-					echo '</a></li>' . "\n";
+					$serp_list_li[] = '<li class="' . $serial_value_css . '"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' .  $findpost->post_title . '</a></li>' . "\n";
 				} else {					
 					// this must be the current post and link is not to be shown
-					echo '<li class="' . $serial_value_css . ' current-inactive">' . $findpost->post_title . '</a></li>' . "\n";
+					$serp_list_li[] = '<li class="' . $serial_value_css . ' current-inactive">' . $findpost->post_title . '</li>' . "\n";
 				}
     		endforeach;
-			/* Finish off the XHTML */
-			echo '</ul>' . "\n";
-			echo '</div>' . "\n";
+			
+			/* Create the list of posts from the array */
+			$serp_list_li = implode('', $serp_list_li);
+			
+			/* Create the closing ul tag for the list */
+			$serp_list_ul_end = '</ul>' . "\n";
+			
+			/* Create the closing div tag to end the XHTML */
+			$serp_div_end = '</div>' . "\n";
+			
+			/* Put all the elements together and construct the output array */
+			$serp_output = array ($serp_div, $serp_heading, $serp_list_ul, $serp_list_li, $serp_list_ul_end, $serp_div_end);
+			$serp_output = implode('', $serp_output);
+			
+			/* Final output ready for use */
+			return $serp_output;
+			
 		endif;
 	}
 }
 
 
-/* Function to create action called in a template file
-NOT CURRENTLY USED */
-function serp_show_list() {
-	/* Print gallery HTML */
-	serial_posts();
+/* Function to create a shortcode
+Use [serialposts] in post edit/write */
+function serp_shortcode() {
+	$serp_result = serial_posts_build();
+	return $serp_result;
 }
-add_action('list_serialposts', 'serp_show_list');
+add_shortcode('serialposts', 'serp_shortcode');
+
+
+/* Function to create template tag */
+function serial_posts() {
+	$serp_result = serial_posts_build();
+	echo $serp_result;
+}
 
 
 /* Setup the plugin and create Admin settings page */

@@ -1,5 +1,5 @@
 <?php
-/* This file is part of the SERIAL POSTS Plugin Version 0.9
+/* This file is part of the SERIAL POSTS Plugin Version 1.0
 ***********************************************************
 Copyright 2008  Ade WALKER  (email : info@studiograsshopper.ch)
 
@@ -81,10 +81,11 @@ serp_load_textdomain();
 			<p><?php _e('What does this plugin do?', SERP_DOMAIN); ?></p>
 			<ul>
 				<li>Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).</li>
-				<li>The position of the Serial Posts list on your page is determined by where you insert the Serial Posts template tag in your single.php or index.php template file.</li>
-				<li>Designed for authors who wish to group posts into series - independantly of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings.</li>
+				<li>The Serial Posts list is added to your single post page either by inserting the [serialposts] shortcode in the Post editor or by using the Serial Posts template tag in your single.php or index.php theme file.</li>
+				<li>The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post, or where you insert the Serial Posts template tag in your single.php or index.php template file, depending on which method is used (shortcode or template tag).</li>
+				<li>Designed for authors who wish to group posts into series - independently of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings.</li>
 			</ul>					
-			<p><?php _e("For further information, see the README.txt document supplied with the plugin or visit the", SERP_DOMAIN); ?> <a href="http://www.studiograsshopper.ch/serial-posts-configuration/">Serial Posts configuration</a> page.</p>
+			<p><?php _e("For further information, see the README.txt document supplied with the plugin or visit the", SERP_DOMAIN); ?> <a href="http://www.studiograsshopper.ch/serial-posts-configuration/">Serial Posts configuration</a> page. A comprehensive "how to" complete with screenshots can also be found at the <a href="http://www.studiograsshopper.ch/serial-posts-plugin-tutorial/">Serial Posts tutorial</a> page.</p>
 		</div>
 		
 		<div class="serpinfo">
@@ -99,8 +100,11 @@ serp_load_textdomain();
 		
 		<div class="serpinfo">
 			<h3><?php _e('How to add a list of Serial Posts to your Posts:', SERP_DOMAIN); ?></h3>
-			<p><?php _e('Add this template tag to your single post theme template file, typically single.php or index.php, wherever you want to display the list of posts. This tag must appear within the Loop.', SERP_DOMAIN); ?></p>
+			<p><?php _e('The plugin provides two methods: a shortcode and a template tag, either of which may be used. It is recommended that you use one or the other, but not both, in accordance with your needs and preferences.', SERP_DOMAIN); ?></p>
+			<p><strong><?php _e('Template tag: ', SERP_DOMAIN); ?></strong><?php _e('Add this template tag to your single post theme template file, typically single.php or index.php, wherever you want to display the list of posts. This tag must appear within the Loop.', SERP_DOMAIN); ?></p>
 			<p><code>&lt;?php serial_posts(); ?&gt;</code></p>
+			<p><strong><?php _e('Shortcode: ', SERP_DOMAIN); ?></strong><?php _e('Add this shortcode directly into the post editor when writing or editing a post.', SERP_DOMAIN); ?></p>
+			<p><code>[serialposts]</code></p>
 		</div>
 				
 		<fieldset name="serialposts" class="options">
@@ -156,7 +160,7 @@ serp_load_textdomain();
 	</form>
 	
 	<div class="serpcredits">
-		<p>For further information please read the README document included in the plugin download, or visit the <a href="http://www.studiograsshopper.ch/serial-posts-configuration/">Serial Posts configuration</a> page.</p>
+		<p>For further information please read the README document included in the plugin download, or visit the <a href="http://www.studiograsshopper.ch/serial-posts-configuration/">Serial Posts configuration</a> page. A comprehensive "how to" complete with screenshots can also be found at the <a href="http://www.studiograsshopper.ch/serial-posts-plugin-tutorial/">Serial Posts tutorial</a> page.</p>
 		<p>With acknowledgements to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a> whose original code idea inspired this plugin.</p> 
 		<p>Serial Posts plugin for Wordpress and Wordpress Mu by <a href="http://www.studiograsshopper.ch/">Ade Walker</a>&nbsp;&nbsp;&nbsp;<strong>Version: <?php echo SERP_VER; ?></strong></p>      
 		<p>If you have found this plugin useful, please consider making a donation to help support future development. Your support will be much appreciated. Thank you!</p>

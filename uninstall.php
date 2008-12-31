@@ -1,5 +1,5 @@
 <?php
-/* This file is part of the SERIAL POSTS Wordpress Plugin Version 0.9
+/* This file is part of the SERIAL POSTS Wordpress Plugin Version 1.0
 *********************************************************************
 Copyright 2008  Ade WALKER  (email : info@studiograsshopper.ch)
 
