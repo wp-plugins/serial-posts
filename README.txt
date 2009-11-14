@@ -14,7 +14,7 @@ Allows you to assign posts to a Serial, using custom fields, and then displays a
 
 == Description==
 
-This plugin allows you to assign a Serial name, using custom fields, to your posts and then automatically displays a list of other posts which have the same Serial name when viewing this post. You can create as many Serials as you need, therefore allowing you to create multiple groupings of posts. Designed for authors who wish to group posts into series - independantly of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings. 
+This plugin allows you to assign a **Serial** name, using custom fields, to your posts and then automatically displays a list of other posts which have the same Serial name when viewing this post. You can create as many Serials as you need, therefore allowing you to create multiple groupings of posts. Designed for authors who wish to group posts into series - independantly of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any posts that you wish to group together to create a wide variety of "related post" or other post groupings. 
 
 
 **Key Features**
@@ -127,11 +127,15 @@ If you cannot find a solution to a problem in the FAQ visit the support pageforu
 Thanks for downloading the plugin.  Enjoy!
 
 
-== Release History ==
+== Changelog ==
 
-Version 1.0 31/12/2008	Added shortcode and fixed xhtml output error.
+= 1.0 =
+* Released 31/12/2008
+* Added shortcode and fixed xhtml output error.
 
-Version 0.9	17/12/2008	Public release
+= 0.9 =
+* Released 17/12/2008
+* Public release
 
 
 == Technical Notes ==
