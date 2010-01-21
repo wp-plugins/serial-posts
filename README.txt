@@ -1,12 +1,12 @@
 === Serial Posts ===
 
-Version: 1.1
+Version: 1.2
 Author: Ade Walker, Studiograsshopper
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/serial-posts/
 Tags: posts,series,serial,related,post listings,custom
 Requires at least: 2.8
-Tested up to: 2.8.6 (WP) and 2.8.6 (WPMU)
+Tested up to: 2.9.1 (WP) and 2.9.1.1 (WPMU)
 Stable tag: 1.1
 
 Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. Requires WP/WPMU 2.8+.
@@ -20,6 +20,7 @@ This plugin allows you to assign a Serial name, using custom fields, to your Pos
 **Key Features**
 ----------------
 
+* NEW in 1.2 - New option for selecting UL or OL tags for the list, and new CSS class for the list heading.
 * The Serial Posts list can be displayed using either the [serialposts] shortcode in the Write Post/Page Editor, or by using the Serial Posts template tag in your theme template files.
 * The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post, or where you insert the Serial Posts template tag in your template file.
 * You can create as many different Serials as you wish. Limitation: Currently it is not possible to assign more than one Serial name to any one Post or Page.
@@ -27,7 +28,7 @@ This plugin allows you to assign a Serial name, using custom fields, to your Pos
 * Configurable Heading for the Serial Posts list.
 * Valid xhtml output.
 * Highly customisable CSS styling of the Heading and Serial Posts list.
-* Note: Version 1.1 requires WP/WPMU 2.8+ 
+* Note: Version 1.1+ requires WP/WPMU 2.8+ 
 
 
 **Further information**
@@ -83,7 +84,9 @@ In the Dashboard, go to Settings and open the Serial Posts Configuration page.
 
 **Hide Serial Name**: By default, the Serial Name always appears in the Heading. Check this box to prevent display of the Serial Name in the Heading. Note: checking this option will also hide the "Text after Serial name".
 
-**List &lt;ul&gt; class**: To allow even greater control over the styling of the unordered list, you may specify a class name for the list's &lt;ul&gt; tag. The default is serial-posts. Note that the plugin replaces any whitespace with hyphens.
+**List type &lt;ul&gt; or &lt;ol&gt;**: Select either unordered list &lt;ul&gt; or ordered list &lt;ol&gt; from the dropdown.
+
+**List &lt;ul&gt;/&lt;ol&gt; class**: To allow even greater control over the styling of the list, you may specify a class name for the list's &lt;ul&gt; or &lt;ol&gt; tag. The default is "serial-posts". Note that the plugin replaces any whitespace with hyphens.
 
 **Include current post**: Check the box if you want to include the currently viewed Post/Page in the list of Serial Posts. Default is CHECKED. If you uncheck this box, the currently viewed Post/Page will not appear in the Serial Posts list.
 
@@ -103,7 +106,7 @@ That's it!  The Settings Page is now configured.
 **Download**
 ------------
 
-Latest stable version is version 1.1 available from http://wordpress.org/extend/plugins/serial-posts/ 
+Latest stable version is available from http://wordpress.org/extend/plugins/serial-posts/ 
 
 
 **Known Issues**
@@ -127,6 +130,13 @@ Thanks for downloading the plugin.  Enjoy!
 
 
 == Changelog ==
+
+= 1.2 =
+* Released 21 January 2010
+* Bug fix:	li tags now output with class name "serial-posts-list-item"
+* Bug fix:	Corrected sanitisation of ul_class option
+* Feature:	Added dropdown option to allow either UL or OL tag for list
+* Feature:	Added class name "serial-posts-heading" to list's h3 tag
 
 = 1.1 =
 * Released 16 December 2009

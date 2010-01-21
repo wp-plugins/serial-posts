@@ -2,7 +2,7 @@
 /*
 Plugin Name: Serial Posts Plugin
 Plugin URI: http://www.studiograsshopper.ch/serial-posts/
-Version: 1.1
+Version: 1.2
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Allows you to assign Posts and Pages to a Serial, using custom fields, and then displays a list of all Posts/Pages assigned to the same Serial.
@@ -26,6 +26,12 @@ Description: Allows you to assign Posts and Pages to a Serial, using custom fiel
 
 /* Version History
 
+	1.2			- Bug fix:	Removed dynamic id name for main div due to problems with non-valid CSS characters. Now hardcoded as "serial-posts-wrapper"
+				- Bug fix:	li tags now output with class name "serial-posts-list-item"
+				- Bug fix:	Corrected sanitisation of ul_class option
+				- Feature:	Added dropdown option to allow either UL or OL tag for list
+				- Feature:	Added class name "serial-posts-heading" to list's h3 tag
+	
 	1.1			- Feature:	Tidied up Internationalisation
 				- Feature:	Added Settings API functions for admin page
 				- Bug fix:	Improved options sanitisation and db query security
@@ -76,9 +82,9 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_SERP_URL', WP_PLUGIN_URL.'/serial-posts' );
 define( 'SGR_SERP_DIR', WP_PLUGIN_DIR.'/serial-posts' );
-define( 'SGR_SERP_VER', '1.1' );
+define( 'SGR_SERP_VER', '1.2' );
 define( 'SGR_SERP_DOMAIN', 'serial-posts' );
-define( 'SGR_SERP_VERSION_REQ', '2.8' );
+define( 'SGR_SERP_WP_VERSION_REQ', '2.8' );
 define( 'SGR_SERP_FILE_NAME', 'serial-posts/serial-posts-plugin.php' );
 define( 'SGR_SERP_FILE_HOOK', 'serial_posts' );
 define( 'SGR_SERP_PAGEHOOK', 'settings_page_'.SGR_SERP_FILE_HOOK );
