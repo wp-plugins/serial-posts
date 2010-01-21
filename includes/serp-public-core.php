@@ -1,10 +1,10 @@
 <?php
 /**	This file is part of the SERIAL POSTS Plugin
 *	********************************************
-*	Copyright 2008-2009  Ade WALKER  (email : info@studiograsshopper.ch)
+*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.1
+*	@version	1.2
 *
 *	These are the 'public' functions which produce the Serial Posts lists in the front end
 *	Defines template tag		serial_posts()
@@ -70,8 +70,11 @@ function serial_posts_build() {
 	/* If we have a Serial assigned to this post, let's do our stuff */
 	if ( $serial_name ) {
 		
-		/* Replace whitespace to use Serial Name as CSS class name */
-		$serial_name_css = str_replace( " ", "-", $serial_name );
+		/* Class / ID names for CSS markup */
+		$serial_css_div = 'serial-posts-wrapper';
+		$serial_css_head = 'serial-posts-heading';
+		$serial_css_list = 'serial-posts-list-item';
+		$serial_css_type = $serp_options['list-type'];
 		
 		
 		/* Build mySQL query to pull in custom fields */
@@ -133,18 +136,18 @@ function serial_posts_build() {
 			}
 			
 			/* Create the div container for the list and give it a CSS ID name of the Serial name */
-			$div = '<div id="' . $serial_name_css . '">' . "\n";
+			$div = '<div id="' . $serial_css_div . '">' . "\n";
 						
 			/* Create the list heading */
 			/* Is the Serial name to be hidden from the list heading ? */
 			if ( $serp_options['hide_serial_name'] == "0" ) { // Serial Name is to be displayed
-				$heading = '<h3>' . $pre_text . $pre_spacer . $serial_name . $post_spacer . $post_text . '</h3>' . "\n";
+				$heading = '<h3 class="' . $serial_css_head . '">' . $pre_text . $pre_spacer . $serial_name . $post_spacer . $post_text . '</h3>' . "\n";
 			} else { // Serial name is to be hidden
 				$heading = '<h3>' . $pre_text . '</h3>' . "\n";
 			}
 			
 			/* Create the ul container for the list */
-			$list_ul = '<ul class="' . $serp_options['ul_class'] . '">' . "\n";
+			$list_ul = '<'. $serial_css_type .' class="' . $serp_options['ul_class'] . '">' . "\n";
 			
 			/* Create the post list as an array */
 			$list_li = array();
@@ -155,15 +158,15 @@ function serial_posts_build() {
 				if ( ( ( $findpost->ID ) == $id ) && ( $serp_options['link_current'] == "1" ) ) {
 					
 					// we have the current post and link is to be shown
-					$list_li[] = '<li class="' . $serial_name_css . ' current-active"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' . $findpost->post_title . '</a></li>' . "\n";
+					$list_li[] = '<li class="' . $serial_css_list . ' current-active"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' . $findpost->post_title . '</a></li>' . "\n";
 				
 				} elseif ( ( $findpost->ID ) != $id ) {
 					// all other posts except the current post
-					$list_li[] = '<li class="' . $serial_name_css . '"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' .  $findpost->post_title . '</a></li>' . "\n";
+					$list_li[] = '<li class="' . $serial_css_list . '"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' .  $findpost->post_title . '</a></li>' . "\n";
 				
 				} else {					
 					// this must be the current post and link is not to be shown
-					$list_li[] = '<li class="' . $serial_name_css . ' current-inactive">' . $findpost->post_title . '</li>' . "\n";
+					$list_li[] = '<li class="' . $serial_css_list . ' current-inactive">' . $findpost->post_title . '</li>' . "\n";
 				}
 				
     		endforeach;
@@ -172,7 +175,7 @@ function serial_posts_build() {
 			$list_li = implode('', $list_li);
 			
 			/* Create the closing ul tag for the list */
-			$list_ul_end = '</ul>' . "\n";
+			$list_ul_end = '</' . $serial_css_type . '>' . "\n";
 			
 			/* Create the closing div tag to end the XHTML */
 			$div_end = '</div>' . "\n";

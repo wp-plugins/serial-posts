@@ -1,10 +1,10 @@
 <?php
 /**	This file is part of the SERIAL POSTS Plugin
 *	********************************************
-*	Copyright 2008-2009  Ade WALKER  (email : info@studiograsshopper.ch)
+*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.1
+*	@version	1.2
 *
 *	These are the functions which produce the UI postboxes
 *	for the Settings page.
@@ -42,7 +42,7 @@ function serp_general_text() {
 			
 				<h4><?php _e('How to display the Serial list in Posts/Pages', SGR_SERP_DOMAIN); ?></h4>
 				<p><?php _e('The plugin provides two methods: a shortcode and a template tag, either of which may be used. It is recommended that you use one or the other, but not both, in accordance with your needs and preferences.', SGR_SERP_DOMAIN); ?></p>
-				<p><strong><?php _e('Template tag: ', SGR_SERP_DOMAIN); ?></strong><?php _e('Add this template tag to, typically, your single post theme template file, usually single.php or index.php, wherever you want to display the list of Posts/Pages. This tag must appear within the Loop.', SGR_SERP_DOMAIN); ?></p>
+				<p><strong><?php _e('Template tag: ', SGR_SERP_DOMAIN); ?></strong><?php _e('Add this template tag to your single post theme template file, usually single.php or index.php, depending on your theme, wherever you want to display the list of Posts/Pages. This tag must appear within the Loop.', SGR_SERP_DOMAIN); ?></p>
 				<p><code>&lt;?php serial_posts(); ?&gt;</code></p>
 				<p><strong><?php _e('Shortcode: ', SGR_SERP_DOMAIN); ?></strong><?php _e('Add this shortcode directly into the post editor when writing or editing a Post or Page.', SGR_SERP_DOMAIN); ?></p>
 				<p><code>[serialposts]</code></p>
@@ -63,11 +63,13 @@ function serp_listoptions_text() {
 		<div class="inside">
 			<p><?php _e('The plugin outputs the list of Serial Posts with the following XHTML and CSS markup:', SGR_SERP_DOMAIN); ?></p>
 			<ul>
-				<li><?php _e('The entire list is contained in a &lt;div&gt; which is automatically assigned an ID of the name of the Serial.', SGR_SERP_DOMAIN); ?></li>
-				<li><?php _e('A List Heading in &lt;h3&gt; tags. The Heading is made up of three text elements: "Text before" "Serial Name" "Text after". The text for "Text before" and "Text after" is entered in the fields below. If you don\'t want to use either or both of these, just blank out the field before saving your settings using the Save Changes button. You can also not display the "Serial Name" by checking the "Hide Serial name" checkbox below.', SGR_SERP_DOMAIN); ?></li>
-				<li><?php _e('An unordered list of links for the posts/pages, each link enclosed in &lt;li&gt; tags and assigned a class of the name of the Serial.', SGR_SERP_DOMAIN); ?></li>
-				<li><?php _e('Additionally, to allow even greater control over the styling of the unordered list, you may specify a class name for the list\'s &lt;ul&gt; tag.', SGR_SERP_DOMAIN); ?></li>
-				<li><?php _e('For full details of the CSS markup automatically added to the XHTML for the Heading and the list of posts please refer to the', SGR_SERP_DOMAIN); ?> <a href="http://www.studiograsshopper.ch/serial-posts-configuration/"><?php _e('Serial Posts configuration', SGR_SERP_DOMAIN); ?></a> <?php _e('page', SGR_SERP_DOMAIN); ?>.</li>
+				<li><?php _e('The entire list is contained in a &lt;div&gt; which is automatically assigned an ID of "serial-posts-wrapper".', SGR_SERP_DOMAIN); ?></li>
+				<li><?php _e('A List Heading in &lt;h3&gt; tags assigned a class of "serial-posts-heading".', SGR_SERP_DOMAIN); ?></li>
+				<li><?php _e('The Heading is made up of three text elements: "Text before" "Serial Name" "Text after". The text for "Text before" and "Text after" is entered in the fields below. If you do not want to use either or both of these, just blank out the field before saving your settings using the Save Changes button. You can also choose to hide the "Serial Name" by checking the "Hide Serial name" checkbox below.', SGR_SERP_DOMAIN); ?></li>
+				<li><?php _e('You can choose whether to display the list as an unordered list &lt;ul&gt; or ordered list &lt;ol&gt;.', SGR_SERP_DOMAIN); ?></li>
+				<li><?php _e('Additionally, to allow even greater control over the styling of the list, you may specify a class name for the &lt;ul&gt; or &lt;ol&gt; tag.', SGR_SERP_DOMAIN); ?></li>
+				<li><?php _e('The &lt;li&gt; tags are automatically assigned a class of "serial-posts-list-item".', SGR_SERP_DOMAIN); ?></li>
+				<li><?php _e('For full details of the CSS markup automatically added to the XHTML for the Heading and the list of posts please refer to the', SGR_SERP_DOMAIN); ?> <a href="http://www.studiograsshopper.ch/serial-posts/configuration/"><?php _e('Serial Posts configuration', SGR_SERP_DOMAIN); ?></a> <?php _e('page', SGR_SERP_DOMAIN); ?>.</li>
 			</ul>
 	
 <?php }
@@ -94,10 +96,20 @@ function serp_hide_serial_name_field() {
 <?php }
 
 
+function serp_list_type_field() {
+	global $serp_options;
+?>
+	<select name="serial_posts_settings[list-type]">
+	<option style="padding-right:10px;" value="ul" <?php selected('ul', $serp_options['list-type']); ?>>ul</option>
+	<option style="padding-right:10px;" value="ol" <?php selected('ol', $serp_options['list-type']); ?>>ol</option>
+	</select>&nbsp;<em><?php _e('Select either unordered list &lt;ul&gt; or ordered list &lt;ol&gt;.', SGR_SERP_DOMAIN); ?> <em><?php _e('Default is &lt;ul&gt;.', SGR_SERP_DOMAIN); ?></em>
+<?php }
+
+
 function serp_list_ul_class_field() {
 	global $serp_options;
 ?>
-	<input name="serial_posts_settings[ul_class]" id="serp-ul_class" size="20" value="<?php echo $serp_options['ul_class']; ?>" />&nbsp;<em><?php _e('Note that the plugin replaces any whitespace with hyphens. Default is "serial-posts".', SGR_SERP_DOMAIN); ?></em>
+	<input name="serial_posts_settings[ul_class]" id="serp-ul_class" size="20" value="<?php echo $serp_options['ul_class']; ?>" />&nbsp;<em><?php _e('Alphanumeric and hyphens only. Note that the plugin replaces any whitespace with hyphens. Default is "serial-posts".', SGR_SERP_DOMAIN); ?></em>
 <?php }
 
 
@@ -128,7 +140,7 @@ function serp_ui_sgr_info() {
 		<li><a href="http://www.studiograsshopper.ch/serial-posts/configuration/"><?php _e('Configuration guide', SGR_SERP_DOMAIN); ?></a></li>
 		<li><a href="http://www.studiograsshopper.ch/serial-posts/tutorial/"><?php _e('Tutorial', SGR_SERP_DOMAIN); ?></a></li>
 		<li><a href="http://www.studiograsshopper.ch/serial-posts/faq/"><?php _e('FAQ', SGR_SERP_DOMAIN); ?></a></li>
-		<li><a href="http://www.studiograsshopper.ch/forum/"><?php _e('Support Forum', DFCG_DOMAIN); ?></a></li>
+		<li><a href="http://www.studiograsshopper.ch/forum/"><?php _e('Support Forum', SGR_SERP_DOMAIN); ?></a></li>
 	</ul>
 	<p><?php _e('If you have found this plugin useful, please consider making a donation to help support future development. Your support will be much appreciated. Thank you!', SGR_SERP_DOMAIN); ?> 
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">

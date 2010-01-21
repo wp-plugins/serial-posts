@@ -1,10 +1,10 @@
 <?php
 /**	This file is part of the SERIAL POSTS Plugin
 *	********************************************
-*	Copyright 2008-2009  Ade WALKER  (email : info@studiograsshopper.ch)
+*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.1
+*	@version	1.2
 *
 *	Sanitise Settings screen Options input.
 *	register_settings() callback function.
@@ -63,11 +63,27 @@ function serp_sanitise($input) {
 	
 	/***** Organise the options by type etc, into arrays, then sanitise / validate / format correct *****/
 	
+	//	Whitelist options													(1)
 	//	On-off options														(3)
 	//	Bool options														(1)
-	//	String options - no XHTML allowed									(3)
+	//	String options - no XHTML allowed									(2)
+	//	String options - no invalid CSS class characters					(1)
 	
 	
+	/***** Whitelist options (1) *****/
+	
+	$whitelist_opts = array( 'list-type' );
+	
+	// Define whitelist of known values
+	$serp_whitelist = array( 'ul', 'ol' );
+	
+	// sanitise
+	foreach( $whitelist_opts as $key ) {
+		// If option value is not in whitelist
+		if( !in_array( $input[$key], $serp_whitelist ) ) {
+			wp_die( "Serial Posts Message #20: " . $sanitise_error );
+		}
+	}
 	
 	/***** On-off options (3) *****/
 	
@@ -89,13 +105,27 @@ function serp_sanitise($input) {
 	}
 	
 	
-	/***** String options - no XHTML allowed (3) *****/
+	/***** String options - no XHTML allowed (2) *****/
 	
 	$str_opts_no_html = array( 'pre_text', 'post_text' );
 	
 	// sanitise
 	foreach( $str_opts_no_html as $key ) {
 		$input[$key] = wp_filter_nohtml_kses( $input[$key] );
+	}
+	
+	
+	/***** String options - no invalid CSS class characters (1) *****/
+	
+	$str_opts_css = array( 'ul_class' );
+	
+	// sanitise
+	foreach( $str_opts_css as $key ) {
+		$input[$key] = strtolower( $input[$key] ); // convert to lowercase
+		$input[$key] = preg_replace( '/^\W+/', '', $input[$key] ); // delete all leading ('/^.../') non-alphanumeric characters
+		$input[$key] = preg_replace( '/\W+$/', '', $input[$key] ); // delete all trailing ('/...$/') non-alphanumeric characters
+		$input[$key] = preg_replace( '/\W+/', '-', $input[$key] ); // replace remaining non-alphanumeric characters with single hyphen
+		$input[$key] = preg_replace( '/\s+/', '-', $input[$key] ); // replace single or multiple spaces with a hyphen
 	}
 	
 	

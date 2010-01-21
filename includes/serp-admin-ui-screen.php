@@ -1,10 +1,10 @@
 <?php
 /**	This file is part of the SERIAL POSTS Plugin
 *	********************************************
-*	Copyright 2008-2009  Ade WALKER  (email : info@studiograsshopper.ch)
+*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.1
+*	@version	1.2
 *
 *	Options page for Wordpress and Wordpress Mu.
 *

@@ -1,10 +1,10 @@
 <?php
 /**	This file is part of the SERIAL POSTS Plugin
 *	********************************************
-*	Copyright 2008-2009  Ade WALKER  (email : info@studiograsshopper.ch)
+*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.1
+*	@version	1.2
 *
 *	Core Admin Functions called by various add_filters and add_actions:
 *		- Register Settings
@@ -62,7 +62,10 @@ function serp_init() {
 	add_settings_field('serp_hide_serial_name', __('Hide Serial name:', SGR_SERP_DOMAIN), 'serp_hide_serial_name_field', 'serial_posts_settings_sections', 'serp_listoptions');
 	
 	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_list_ul_class', __('List &lt;ul&gt; class:', SGR_SERP_DOMAIN), 'serp_list_ul_class_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	add_settings_field('serp_list_type', __('List type &lt;ul&gt; or &lt;ol&gt;:', SGR_SERP_DOMAIN), 'serp_list_type_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	
+	// ID of field, field title, callback function for display, do_settings name, ID of related section
+	add_settings_field('serp_list_ul_class', __('List &lt;ul&gt;/&lt;ol&gt; class:', SGR_SERP_DOMAIN), 'serp_list_ul_class_field', 'serial_posts_settings_sections', 'serp_listoptions');
 	
 	// ID of field, field title, callback function for display, do_settings name, ID of related section
 	add_settings_field('serp_include_current_post', __('Include current post:', SGR_SERP_DOMAIN), 'serp_include_current_post_field', 'serial_posts_settings_sections', 'serp_listoptions');
@@ -268,7 +271,7 @@ function serp_admin_notices() {
 *
 *	Used by the "upgrader" function serp_set_gallery_options().
 *	
-*	7 options
+*	8 options
 *
 *	@since	0.9	
 */
@@ -282,6 +285,7 @@ function serp_default_options() {
 		'link_current' => '0',
 		'hide_serial_name' => '0',
 		'just-reset' => 'false',
+		'list-type' => 'ul'	// Options are ul or ol
 	);
 	
 	// Return options array for use elsewhere
@@ -301,6 +305,7 @@ function serp_default_options() {
 *	In 1.1	Added "Hide Serial name" option
 *	In 1.1	Added just-reset option
 *	In 1.1	"Reset" is deprecated as a stored option (resetting is handled by a button now)
+*	In 1.2	"list-type" added
 *
 *
 *	@uses 	serp_default_options()
@@ -309,8 +314,8 @@ function serp_default_options() {
 function serp_set_gallery_options() {
 	
 	// Get currently stored options
-	$serp_existing = get_option( 'serial_posts_settings' );
-	$serp_old = get_option( 'serp_plugin_settings' );
+	$serp_existing = get_option( 'serial_posts_settings' ); 	// v1.1+
+	$serp_old = get_option( 'serp_plugin_settings' );			// v0.9 and v1.0
 	$serp_version = get_option('serial_posts_version');
 	
 	
@@ -321,12 +326,26 @@ function serp_set_gallery_options() {
 		return;
 	
 	
+	// We're upgrading from 1.1 to 1.2
+	} elseif( $serp_existing && $serp_version == '1.1' ) {
+	
+		// Add new options
+		$serp_existing['list-type'] = 'ul';
+		
+		// Update settings in db
+		update_option('serial_posts_settings', $serp_existing);
+		
+		// Update version no. in the db
+		update_option('serial_posts_version', SGR_SERP_VER);
+	
+	
 	// We're upgrading from v0.9 or v1.1
 	} elseif( $serp_old && !$serp_prev_version ) {
 		
 		// Add v1.1 options
 		$serp_old['hide_serial_name'] = '0';
 		$serp_old['just-reset'] = 'false';
+		$serp_old['list-type'] = 'ul';
 		
 		// Delete "reset" option, now deprecated
 		unset( $serp_old['reset'] );
