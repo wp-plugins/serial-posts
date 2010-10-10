@@ -2,13 +2,13 @@
 /*
 Plugin Name: Serial Posts Plugin
 Plugin URI: http://www.studiograsshopper.ch/serial-posts/
-Version: 1.2
+Version: 1.3
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Allows you to assign Posts and Pages to a Serial, using custom fields, and then displays a list of all Posts/Pages assigned to the same Serial.
 */
 
-/*  Copyright 2008-2009  Ade WALKER  (email : info@studiograsshopper.ch)
+/*  Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License 2 as published by
@@ -26,6 +26,8 @@ Description: Allows you to assign Posts and Pages to a Serial, using custom fiel
 
 /* Version History
 
+	1.3			_
+	
 	1.2			- Bug fix:	Removed dynamic id name for main div due to problems with non-valid CSS characters. Now hardcoded as "serial-posts-wrapper"
 				- Bug fix:	li tags now output with class name "serial-posts-list-item"
 				- Bug fix:	Corrected sanitisation of ul_class option
@@ -82,7 +84,7 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_SERP_URL', WP_PLUGIN_URL.'/serial-posts' );
 define( 'SGR_SERP_DIR', WP_PLUGIN_DIR.'/serial-posts' );
-define( 'SGR_SERP_VER', '1.2' );
+define( 'SGR_SERP_VER', '1.3' );
 define( 'SGR_SERP_DOMAIN', 'serial-posts' );
 define( 'SGR_SERP_WP_VERSION_REQ', '2.8' );
 define( 'SGR_SERP_FILE_NAME', 'serial-posts/serial-posts-plugin.php' );
