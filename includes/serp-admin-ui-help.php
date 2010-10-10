@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.2
+*	@version	1.3
 *
 *	These are the functions which produce the Contextual Help
 *	in the Settings page pull-down.

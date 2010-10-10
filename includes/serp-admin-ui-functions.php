@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.2
+*	@version	1.3
 *
 *	These are the functions which produce the UI postboxes
 *	for the Settings page.
@@ -133,7 +133,7 @@ function serp_ui_sgr_info() {
 ?>
 	<div class="postbox" id="sgr-info">
 	<h4><?php _e('Resources & Support', SGR_SERP_DOMAIN); ?></h4>
-	<p><a href="http://www.studiograsshopper.ch"><img src="<?php echo SGR_SERP_URL . '/admin-assets/sgr_icon_75.jpg'; ?>" alt="studiograsshopper" /></a><strong><?php _e('Serial Posts plugin for WP and WPMU', SGR_SERP_DOMAIN); ?></strong>.<br /><?php _e('Version ', SGR_SERP_DOMAIN); ?><?php echo SGR_SERP_VER; ?><br /><?php _e('Author: ', SGR_SERP_DOMAIN); ?><a href="http://www.studiograsshopper.ch/">Ade Walker</a></p>
+	<p><a href="http://www.studiograsshopper.ch"><img src="<?php echo SGR_SERP_URL . '/admin-assets/sgr_icon_75.jpg'; ?>" alt="studiograsshopper" /></a><strong><?php _e('Serial Posts plugin for WordPress', SGR_SERP_DOMAIN); ?></strong>.<br /><?php _e('Version ', SGR_SERP_DOMAIN); ?><?php echo SGR_SERP_VER; ?><br /><?php _e('Author: ', SGR_SERP_DOMAIN); ?><a href="http://www.studiograsshopper.ch/">Ade Walker</a></p>
 	<p><?php _e('For further information, or in case of configuration problems, please consult these comprehensive resources:', SGR_SERP_DOMAIN); ?></p>
 	<ul>
 		<li><a href="http://www.studiograsshopper.ch/serial-posts/"><?php _e('Plugin Home page', SGR_SERP_DOMAIN); ?></a></li>

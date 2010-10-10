@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.1
+*	@version	1.3
 *
 *	Admin Settings page CSS and Javascript
 *
@@ -19,10 +19,11 @@ if (!defined('ABSPATH')) {
 
 
 /**	Function for loading JS and CSS for Settings Page
-*	
-*	Code idea from Nathan Rice, Theme Options plugin.
 *
-*	@since	1.1	
+* Code idea from Nathan Rice, Theme Options plugin.
+*
+* @since 1.1
+* @updated 1.3
 */
 function serp_options_css_js() {
 echo <<<CSS
@@ -54,7 +55,7 @@ echo <<<JS
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-	$(".fade").fadeIn(1000).fadeTo(3000, 1).fadeOut(1000);
+	$("#setting-error-settings_updated").fadeIn(1000).fadeTo(3000, 1).fadeOut(1000);
 });
 </script>
 

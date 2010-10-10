@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.2
+*	@version	1.3
 *
 *	Sanitise Settings screen Options input.
 *	register_settings() callback function.

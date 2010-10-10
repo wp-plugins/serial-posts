@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.2
+*	@version	1.3
 *
 *	Core Admin Functions called by various add_filters and add_actions:
 *		- Register Settings
@@ -85,20 +85,17 @@ function serp_init() {
 *	@uses	serp_set_gallery_options()
 *
 *	@since	0.9
+*	@updated 1.3
 */	
 function serp_add_page() {
 	
 	serp_load_textdomain();
 	
-	// check user credentials
-	if ( current_user_can('manage_options') && function_exists('add_options_page') ) {
-		
-		// Add Settings Page
-		$serppage = add_options_page('Serial Posts Options', 'Serial Posts', 'manage_options', SGR_SERP_FILE_HOOK, 'serp_options_page');
-		
-		// Populate plugin's options
-		serp_set_gallery_options();
-	}
+	// Populate plugin's options - now runs before Settings Page is loaded. Duh!
+	serp_set_gallery_options();
+	
+	// Add Settings Page
+	$serppage = add_options_page('Serial Posts Options', 'Serial Posts', 'manage_options', SGR_SERP_FILE_HOOK, 'serp_options_page');
 	
 	return $serppage;
 }
@@ -325,6 +322,18 @@ function serp_set_gallery_options() {
 		// Nothing to do here...
 		return;
 	
+	
+	// We're upgrading from 1.2 to 1.3
+	} elseif( $serp_existing && $serp_version == '1.2' ) {
+	
+		// Add new options
+		
+		
+		// Update settings in db
+		update_option('serial_posts_settings', $serp_existing);
+		
+		// Update version no. in the db
+		update_option('serial_posts_version', SGR_SERP_VER);
 	
 	// We're upgrading from 1.1 to 1.2
 	} elseif( $serp_existing && $serp_version == '1.1' ) {

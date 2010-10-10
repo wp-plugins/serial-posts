@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.2
+*	@version	1.3
 *
 *	Options page for Wordpress and Wordpress Mu.
 *
@@ -62,7 +62,7 @@ serp_options_css_js();
 			<a href="http://www.studiograsshopper.ch/serial-posts/faq/"><?php _e('FAQ', SGR_SERP_DOMAIN); ?></a> | 
 		</p>
 		<p><?php _e('With acknowledgements to', SGR_SERP_DOMAIN); ?> <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a> <?php _e('whose original code idea inspired this plugin.', SGR_SERP_DOMAIN); ?></p> 
-		<p><?php _e('Serial Posts plugin for Wordpress and Wordpress Mu by', SGR_SERP_DOMAIN); ?> <a href="http://www.studiograsshopper.ch/">Ade Walker</a>&nbsp;&nbsp;&nbsp;<strong><?php _e('Version: ', SGR_SERP_DOMAIN); ?><?php echo SGR_SERP_VER; ?></strong></p>      
+		<p><?php _e('Serial Posts plugin for WordPress by', SGR_SERP_DOMAIN); ?> <a href="http://www.studiograsshopper.ch/">Ade Walker</a>&nbsp;&nbsp;&nbsp;<strong><?php _e('Version: ', SGR_SERP_DOMAIN); ?><?php echo SGR_SERP_VER; ?></strong></p>      
 		
 	</div>
 	

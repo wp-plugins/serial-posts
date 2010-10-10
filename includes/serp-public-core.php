@@ -4,7 +4,7 @@
 *	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	serial_posts
-*	@version	1.2
+*	@version	1.3
 *
 *	These are the 'public' functions which produce the Serial Posts lists in the front end
 *	Defines template tag		serial_posts()
