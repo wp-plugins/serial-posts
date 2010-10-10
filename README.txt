@@ -6,10 +6,10 @@ Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/serial-posts/
 Tags: posts,series,serial,related,post listings,custom
 Requires at least: 2.8
-Tested up to: 2.9.2 (WP) and 2.9.1.1 (WPMU)
+Tested up to: 3.0.1
 Stable tag: 1.2
 
-Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. Requires WP/WPMU 2.8+.
+Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. Requires WordPress 2.8+.
 
 
 == Description==
@@ -28,7 +28,7 @@ This plugin allows you to assign a Serial name, using custom fields, to your Pos
 * Configurable Heading for the Serial Posts list.
 * Valid xhtml output.
 * Highly customisable CSS styling of the Heading and Serial Posts list.
-* Note: Version 1.1+ requires WP/WPMU 2.8+ 
+* Note: Version 1.1+ requires WordPress 2.8+ 
 
 
 **Further information**
