@@ -1,16 +1,16 @@
 <?php
-/**	This file is part of the SERIAL POSTS Plugin
-*	********************************************
-*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
-*
-* 	@package	serial_posts
-*	@version	1.3
-*
-*	Sanitise Settings screen Options input.
-*	register_settings() callback function.
-*
-*	@since 1.1
-*/
+/**
+ * ********************************************
+ * @author Ade WALKER  (email : info@studiograsshopper.ch)
+ * @copyright Copyright 2008-2012
+ * @package serial_posts
+ * @version 1.2.1
+ *
+ * Sanitise Settings screen Options input.
+ * register_settings() callback function.
+ *
+ * @since 1.1
+ */
 
 /* Prevent direct access to this file */
 if (!defined('ABSPATH')) {

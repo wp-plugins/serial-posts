@@ -1,150 +1,164 @@
 <?php
-/**	This file is part of the SERIAL POSTS Plugin
-*	********************************************
-*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
-*
-* 	@package	serial_posts
-*	@version	1.3
-*
-*	Core Admin Functions called by various add_filters and add_actions:
-*		- Register Settings
-*		- Add Settings Page
-*		- Plugin action links
-*		- Plugin row meta
-*		- WP Version check
-*		- Admin Notices for Settings reset
-*		- Options handling and upgrading
-*
-*	@since	1.1
-*
-*/
+/**
+ * Admin Core functions - this is the parent file that handles all the backend
+ *
+ * @author Ade WALKER  (email : info@studiograsshopper.ch)
+ * @copyright Copyright 2008-2012
+ * @package serial_posts
+ * @version 1.2.1
+ *
+ * Core Admin Functions called by various add_filters and add_actions:
+ * - Register Settings
+ * - Add Settings Page
+ * - Plugin action links
+ * - Plugin row meta
+ * - WP Version check
+ * - Admin Notices for Settings reset
+ * - Options handling and upgrading
+ *
+ * @since 1.1
+ */
 
-/* Prevent direct access to this file */
-if (!defined('ABSPATH')) {
-	exit( __('Sorry, you are not allowed to access this file directly.', SGR_SERP_DOMAIN) );
+
+/**
+ * Prevent direct access to this file
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( _( 'Sorry, you are not allowed to access this file directly.' ) );
 }
 
 
 
 /***** Admin Init *****/
 
-/** Register Settings as per new API, 2.7+
-*
-*	Hooked to admin_init
-*
-*	@uses	serp_sanitise() = callback function for sanitising options
-*
-*	serp_plugin_settings_options 	= Options Group name (do_settings name)
-*	serial_posts_settings 			= Option Name in db
-*
-*	@since	1.1
-*/
+/** 
+ * Register Settings as per new API, 2.7+
+ *
+ * Hooked to 'admin_init'
+ *
+ * settings_fields()	serp_plugin_settings 	= Options Group name (do_settings name)
+ * serial_posts_settings 			= Option Name in db
+ *
+ * @since 1.1
+ */
 function serp_init() {
 
+	// $page, the slug of the settings page as per its URL (also used by do_settings_section)
+	$page = 'serial_posts';
+	
+	
 	// Group name, db options name, sanitise callback function
-	register_setting( 'serp_plugin_settings_options', 'serial_posts_settings', 'serp_sanitise' );
+	register_setting( 'serp_plugin_settings', 'serial_posts_settings', 'serp_sanitise' );
 	
 	
-	// ID of section, display title (not used), callback function for display, do_settings name
-	add_settings_section('serp_general', '', 'serp_general_text', 'serial_posts_settings_sections');
+	// ID of section, display title (not used), callback function for display, $page(do_settings_section name)
+	//add_settings_section('serp_general', '', 'serp_general_text', 'serial_posts');
+	
+	// ID of section, display title (not used), callback function for display, $page(do_settings_section name)
+	add_settings_section('serp_listoptions', '', 'serp_listoptions_text', $page);
 	
 	
-	// ID of section, display title (not used), callback function for display, do_settings name
-	add_settings_section('serp_listoptions', '', 'serp_listoptions_text', 'serial_posts_settings_sections');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_text_before_serial_name', __('Text before Serial name:', SGR_SERP_DOMAIN), 'serp_text_before_serial_name_field', 'serial_posts', 'serp_listoptions');
 	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_text_before_serial_name', __('Text before Serial name:', SGR_SERP_DOMAIN), 'serp_text_before_serial_name_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_text_after_serial_name', __('Text after Serial name:', SGR_SERP_DOMAIN), 'serp_text_after_serial_name_field', 'serial_posts', 'serp_listoptions');
 	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_text_after_serial_name', __('Text after Serial name:', SGR_SERP_DOMAIN), 'serp_text_after_serial_name_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_hide_serial_name', __('Hide Serial name:', SGR_SERP_DOMAIN), 'serp_hide_serial_name_field', $page, 'serp_listoptions');
 	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_hide_serial_name', __('Hide Serial name:', SGR_SERP_DOMAIN), 'serp_hide_serial_name_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_list_type', __('List type &lt;ul&gt; or &lt;ol&gt;:', SGR_SERP_DOMAIN), 'serp_list_type_field', $page, 'serp_listoptions');
 	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_list_type', __('List type &lt;ul&gt; or &lt;ol&gt;:', SGR_SERP_DOMAIN), 'serp_list_type_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_list_ul_class', __('List &lt;ul&gt;/&lt;ol&gt; class:', SGR_SERP_DOMAIN), 'serp_list_ul_class_field', $page, 'serp_listoptions');
 	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_list_ul_class', __('List &lt;ul&gt;/&lt;ol&gt; class:', SGR_SERP_DOMAIN), 'serp_list_ul_class_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_include_current_post', __('Include current post:', SGR_SERP_DOMAIN), 'serp_include_current_post_field', $page, 'serp_listoptions');
 	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_include_current_post', __('Include current post:', SGR_SERP_DOMAIN), 'serp_include_current_post_field', 'serial_posts_settings_sections', 'serp_listoptions');
-	
-	// ID of field, field title, callback function for display, do_settings name, ID of related section
-	add_settings_field('serp_link_current_post', __('Show current post as a link:', SGR_SERP_DOMAIN), 'serp_link_current_post_field', 'serial_posts_settings_sections', 'serp_listoptions');
+	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
+	add_settings_field('serp_link_current_post', __('Show current post as a link:', SGR_SERP_DOMAIN), 'serp_link_current_post_field', $page, 'serp_listoptions');
 }
 
 
 
 /***** Settings Page and Plugins Page Functions *****/
 
-/**	Create Admin settings page and populate options
-*
-*	@uses	serp_load_textdomain()
-*	@uses	serp_options_page()
-*	@uses	serp_set_gallery_options()
-*
-*	@since	0.9
-*	@updated 1.3
-*/	
+/**
+ * Create Admin settings page and populate options
+ *
+ * @uses serp_options_page() - add_options_page callback
+ * @uses serp_set_gallery_options()
+ *
+ * @since 0.9
+ * @updated 1.3
+ */	
 function serp_add_page() {
 	
-	serp_load_textdomain();
+	global $serp_page_hook;
 	
 	// Populate plugin's options - now runs before Settings Page is loaded. Duh!
 	serp_set_gallery_options();
 	
 	// Add Settings Page
-	$serppage = add_options_page('Serial Posts Options', 'Serial Posts', 'manage_options', SGR_SERP_FILE_HOOK, 'serp_options_page');
-	
-	return $serppage;
+	$serp_page_hook = add_options_page( 'Serial Posts Options', 'Serial Posts', 'manage_options', SGR_SERP_FILE_HOOK, 'serp_options_page' );
 }
 
 
-/**	Display the Settings page
-*
-*	Used by serp_add_page()
-*
-*	@since	0.9
-*/	
+/**	
+ * Display the Settings page
+ *
+ * This is the callback for add_options_page in serp_add_page()
+ *
+ * @since 0.9
+ */	
 function serp_options_page(){
 	global $serp_options;
 	include_once( SGR_SERP_DIR . '/includes/serp-admin-ui-screen.php' );
 }
 
 
-/**	Display a Settings link in main Plugin page in Dashboard
-*
-*	Puts the Settings link in with Deactivate/Activate links in Plugins Settings page
-*
-*	Hooked to plugin_action_links filter
-*
-*	@since	0.9
-*/	
-function serp_filter_plugin_actions($links, $file){
+/**
+ * Filter callback to display a Settings link in main Plugin page in Dashboard
+ *
+ * Hooked to 'plugin_action_links' filter
+ *
+ * Puts the 'Settings' link in with Deactivate link in Plugins page
+ *
+ * @since 0.9
+ *
+ * @param array $links Default links shown in first column, main Dashboard Plugins page
+ * @param string $file File name of main plugin file
+ * @return array $links Modified array of links to be shown in first column, main Dashboard Plugins page
+ */	
+function serp_filter_plugin_actions( $links, $file ) {
 	static $this_plugin;
 
-	if( !$this_plugin ) $this_plugin = plugin_basename(__FILE__);
+	if( !$this_plugin ) $this_plugin = plugin_basename( __FILE__ );
 
 	if( $file == SGR_SERP_FILE_NAME ) {
-		$settings_link = '<a href="admin.php?page=' . SGR_SERP_FILE_HOOK . '">' . __('Settings') . '</a>';
-		$links = array_merge( array($settings_link), $links); // before other links
+		$settings_link = sprintf( '<a href="admin.php?page=%s">%s</a>', SGR_SERP_FILE_HOOK, __( 'Settings' ) );
+		$links = array_merge( $links, array( $settings_link ) ); // after other links
 	}
 	return $links;
 }
 
 
-/**	Display Plugin Meta Links in main Plugin page in Dashboard
-*
-*	Adds additional meta links in the plugin's info section in main Plugins Settings page
-*
-*	Hooked to plugin_row_meta filter, so only works for WP 2.8+
-*
-*	@since	1.1
-*/	
-function serp_plugin_meta($links, $file) {
- 
-	// $file is the main plugin filename
+/**
+ * Filter callback to display Plugin Meta Links in main Plugin page in Dashboard
+ *
+ * Hooked to 'plugin_row_meta filter' so only works for WP 2.8+
+ *
+ * Adds additional meta links in the plugin's info section in main Plugins Settings page
+ * Note: these links will only appear if plugin is activated
+ *
+ * @since 1.1
+ *
+ * @param array $links Default links for each plugin row
+ * @param string $file Plugins.php filehook, ie the plugin's file name
+ * @return array $links Modified array of links for Serial Posts Plugin's plugin row
+ */	
+function serp_plugin_meta( $links, $file ) {
  
 	// Check we're only adding links to this plugin
 	if( $file == SGR_SERP_FILE_NAME ) {
@@ -234,25 +248,27 @@ function serp_wp_version_check() {
 }
 
 
-/**	Function to display Admin Notices
-*
-*	Displays Admin Notices after Settings are reset etc
-*
-*	Hooked to admin_notices action
-*
-*	@since	1.1
-*/	
+/**
+ * Function to display Admin Notices
+ *
+ * Hooked to admin_notices action
+ *
+ * Displays Admin Notices after Settings are reset, etc
+ *
+ *
+ * @since 1.1
+ */	
 function serp_admin_notices() {
 	
 	global $serp_options;
 	
 	if( $serp_options['just-reset'] == 'true' ) {
 	
-		echo '<div id="message" class="updated fade" style="background-color:#ecfcde; border:1px solid #a7c886;"><p><strong>' . __('Serial Posts Settings have been reset to default settings.', SGR_SERP_DOMAIN) . '</strong></p></div>';
+		printf( '<div id="message" class="updated fade" style="background-color:#ecfcde; border:1px solid #a7c886;"><p><strong>%s</strong></p></div>', __( 'Serial Posts Settings have been reset to default settings.', SGR_SERP_DOMAIN ) );
 
 		// Reset just-reset to false and update options accordingly
 		$serp_options['just-reset'] = 'false';
-		update_option('serial_posts_settings', $serp_options);
+		update_option( 'serial_posts_settings', $serp_options );
 	}
 }
 
@@ -282,7 +298,8 @@ function serp_default_options() {
 		'link_current' => '0',
 		'hide_serial_name' => '0',
 		'just-reset' => 'false',
-		'list-type' => 'ul'	// Options are ul or ol
+		'list-type' => 'ul',	// Options are ul or ol
+		'reset' => 'false'
 	);
 	
 	// Return options array for use elsewhere
@@ -303,7 +320,7 @@ function serp_default_options() {
 *	In 1.1	Added just-reset option
 *	In 1.1	"Reset" is deprecated as a stored option (resetting is handled by a button now)
 *	In 1.2	"list-type" added
-*
+*	In 1.2	No change
 *
 *	@uses 	serp_default_options()
 *	@since	1.1	
@@ -313,7 +330,7 @@ function serp_set_gallery_options() {
 	// Get currently stored options
 	$serp_existing = get_option( 'serial_posts_settings' ); 	// v1.1+
 	$serp_old = get_option( 'serp_plugin_settings' );			// v0.9 and v1.0
-	$serp_version = get_option('serial_posts_version');
+	$serp_version = get_option( 'serial_posts_version' );
 	
 	
 	// We're in the current version already
@@ -323,10 +340,10 @@ function serp_set_gallery_options() {
 		return;
 	
 	
-	// We're upgrading from 1.2 to 1.3
+	// We're upgrading from 1.2 to 1.2.1
 	} elseif( $serp_existing && $serp_version == '1.2' ) {
 	
-		// Add new options
+		// Add new options = none
 		
 		
 		// Update settings in db

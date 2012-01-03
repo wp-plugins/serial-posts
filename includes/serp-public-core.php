@@ -1,19 +1,18 @@
 <?php
-/**	This file is part of the SERIAL POSTS Plugin
-*	********************************************
-*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
-*
-* 	@package	serial_posts
-*	@version	1.3
-*
-*	These are the 'public' functions which produce the Serial Posts lists in the front end
-*	Defines template tag		serial_posts()
-*	Defines shortcode			serp_shortcode()
-*	Defines list constructor	serial_posts_build()
-*
-*	@since	1.1
-*
-*/
+/**
+ * ********************************************
+ * @author Ade WALKER  (email : info@studiograsshopper.ch)
+ * @copyright Copyright 2008-2012
+ * @package serial_posts
+ * @version 1.2.1
+ *
+ * These are the 'public' functions which produce the Serial Posts lists in the front end
+ * Defines template tag		serial_posts()
+ * Defines shortcode			serp_shortcode()
+ * Defines list constructor	serial_posts_build()
+ *
+ *	@since	1.1
+ */
 
 /* Prevent direct access to this file */
 if (!defined('ABSPATH')) {

@@ -1,16 +1,16 @@
 <?php
-/**	This file is part of the SERIAL POSTS Plugin
-*	********************************************
-*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
-*
-* 	@package	serial_posts
-*	@version	1.3
-*
-*	Admin Settings page CSS and Javascript
-*
-*	@since	1.1
-*
-*/
+/**
+ *	********************************************
+ * @author Ade WALKER  (email : info@studiograsshopper.ch)
+ * @copyright Copyright 2008-2012
+ * @package serial_posts
+ * @version 1.2.1
+ *
+ * Admin Settings page CSS and Javascript
+ *
+ * @since 1.1
+ *
+ */
 
 /* Prevent direct access to this file */
 if (!defined('ABSPATH')) {
@@ -23,7 +23,6 @@ if (!defined('ABSPATH')) {
 * Code idea from Nathan Rice, Theme Options plugin.
 *
 * @since 1.1
-* @updated 1.3
 */
 function serp_options_css_js() {
 echo <<<CSS

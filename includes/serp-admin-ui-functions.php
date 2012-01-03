@@ -1,19 +1,17 @@
 <?php
-/**	This file is part of the SERIAL POSTS Plugin
-*	********************************************
-*	Copyright 2008-2010  Ade WALKER  (email : info@studiograsshopper.ch)
-*
-* 	@package	serial_posts
-*	@version	1.3
-*
-*	These are the functions which produce the UI postboxes
-*	for the Settings page.
-*	These functions are called by Settings API add_settings_section() and add_settings_field()
-*	which are defined in serp_init() in serp-admin-core.php. Hooked by admin_init.
-*
-*	@since	1.1
-*
-*/
+/**
+ * @author Ade WALKER  (email : info@studiograsshopper.ch)
+ * @copyright Copyright 2008-2012
+ * @package serial_posts
+ * @version 1.2.1
+ *
+ * These are the functions which produce the UI postboxes
+ * for the Settings page.
+ * These functions are called by Settings API add_settings_section() and add_settings_field()
+ * which are defined in serp_init() in serp-admin-core.php. Hooked by admin_init.
+ *
+ * @since 1.1
+ */
 
 
 /* Prevent direct access to this file */
@@ -30,7 +28,7 @@ function serp_general_text() {
 		<div class="inside">
 			<div style="float:left;width:690px;">
 				<p><?php _e("Please read through this page and configure the plugin.", SGR_SERP_DOMAIN); ?><br />
-				<strong><em><?php _e('Quick Help: ', SGR_SERP_DOMAIN); ?></strong><?php _e('Click the <strong>Help</strong> tab at the top of the screen for more information on setting up the plugin.', SGR_SERP_DOMAIN); ?></em></p>
+				
 				
 				<h4><?php _e('How to assign Posts/Pages to a Serial', SGR_SERP_DOMAIN); ?></h4>
 				<p><?php _e('In the Write/Edit Post/Page screen add the following Custom Field to each Post/Page that you wish to treat as being part of a Serial:', SGR_SERP_DOMAIN); ?></p>

@@ -1,12 +1,12 @@
 === Serial Posts ===
 
-Version: 1.2
+Version: 1.2.1
 Author: Ade Walker, Studiograsshopper
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/serial-posts/
 Tags: posts,series,serial,related,post listings,custom
 Requires at least: 2.8
-Tested up to: 3.0.1
+Tested up to: 3.3
 Stable tag: 1.2
 
 Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. Requires WP/WPMU 2.8+.
@@ -131,28 +131,34 @@ Thanks for downloading the plugin.  Enjoy!
 
 == Changelog ==
 
+= 1.2.1 =
+* Released 3 January 2012
+* Bug fix: Fixed settings not saving/resetting
+* Bug fix: Temporarily disabled contextual help due to WP 3.3 incompatibility
+* Enhance: Added SGR_SERP_HOME constant
+
 = 1.2 =
 * Released 21 January 2010
-* Bug fix:	li tags now output with class name "serial-posts-list-item"
-* Bug fix:	Corrected sanitisation of ul_class option
-* Feature:	Added dropdown option to allow either UL or OL tag for list
-* Feature:	Added class name "serial-posts-heading" to list's h3 tag
+* Bug fix: li tags now output with class name "serial-posts-list-item"
+* Bug fix: Corrected sanitisation of ul_class option
+* Feature: Added dropdown option to allow either UL or OL tag for list
+* Feature: Added class name "serial-posts-heading" to list's h3 tag
 
 = 1.1 =
 * Released 16 December 2009
-* Feature:	Tidied up Internationalisation
-* Feature:	Added Settings API functions for admin page
-* Bug fix:	Improved options sanitisation and db query security
-* Feature:	Reorganised code into files
-* Bug fix:	Can now be used with Pages as well as Posts
-* Bug fix:	Added global $post to main function
-* Feature:	Added "Hide Serial name" option in Options page
-* Feature: 	Code upgraded, now requires WP 2.8+
+* Feature: Tidied up Internationalisation
+* Feature: Added Settings API functions for admin page
+* Bug fix: Improved options sanitisation and db query security
+* Feature: Reorganised code into files
+* Bug fix: Can now be used with Pages as well as Posts
+* Bug fix: Added global $post to main function
+* Feature: Added "Hide Serial name" option in Options page
+* Feature: Code upgraded, now requires WP 2.8+
 
 = 1.0 =
 * Released 31 December 2008
-* Feature:	Added shortcode [serialposts]
-* Bug fix:	Fixed xhtml output error
+* Feature: Added shortcode [serialposts]
+* Bug fix: Fixed xhtml output error
 
 = 0.9 =
 * Released 17 December 2008
