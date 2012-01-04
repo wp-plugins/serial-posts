@@ -1,6 +1,6 @@
 === Serial Posts ===
 
-Version: 1.2.1
+Version: 1.2.2
 Author: Ade Walker, Studiograsshopper
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/serial-posts/
@@ -130,6 +130,10 @@ Thanks for downloading the plugin.  Enjoy!
 
 
 == Changelog ==
+
+= 1.2.2 =
+* Released 4 January 2012
+* Bug fix: Fixed reset notice from appearing when it shouldn't
 
 = 1.2.1 =
 * Released 3 January 2012
