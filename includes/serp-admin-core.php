@@ -5,7 +5,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2012
  * @package serial_posts
- * @version 1.2.1
+ * @version 1.2.2
  *
  * Core Admin Functions called by various add_filters and add_actions:
  * - Register Settings
@@ -260,7 +260,10 @@ function serp_wp_version_check() {
  */	
 function serp_admin_notices() {
 	
-	global $serp_options;
+	global $serp_options, $current_screen;
+	
+	if( SGR_SERP_PAGEHOOK !== $current_screen->id )
+		return;
 	
 	if( $serp_options['just-reset'] == 'true' ) {
 	
@@ -299,7 +302,7 @@ function serp_default_options() {
 		'hide_serial_name' => '0',
 		'just-reset' => 'false',
 		'list-type' => 'ul',	// Options are ul or ol
-		'reset' => 'false'
+		//'reset' => 'false'
 	);
 	
 	// Return options array for use elsewhere
@@ -339,6 +342,18 @@ function serp_set_gallery_options() {
 		// Nothing to do here...
 		return;
 	
+	
+	// We're upgrading from 1.2.1 to 1.2.2
+	} elseif( $serp_existing && $serp_version == '1.2.1' ) {
+	
+		if ( isset( $serp_existing['reset'] ) )
+			unset( $serp_existing['reset'] );
+	
+		// Update settings in db
+		update_option('serial_posts_settings', $serp_existing);
+		
+		// Update version no. in the db
+		update_option('serial_posts_version', SGR_SERP_VER);
 	
 	// We're upgrading from 1.2 to 1.2.1
 	} elseif( $serp_existing && $serp_version == '1.2' ) {

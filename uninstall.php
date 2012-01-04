@@ -4,7 +4,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2012
  * @package serial_posts
- * @version 1.2.1
+ * @version 1.2.2
  *
  *
  *	Removes options from db when plugin is deleted in Dashboard>Plugins

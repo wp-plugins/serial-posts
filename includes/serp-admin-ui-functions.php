@@ -3,7 +3,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2012
  * @package serial_posts
- * @version 1.2.1
+ * @version 1.2.2
  *
  * These are the functions which produce the UI postboxes
  * for the Settings page.

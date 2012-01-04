@@ -26,6 +26,8 @@ Description: Allows you to assign Posts and Pages to a Serial, using custom fiel
 
 /* Version History
 
+	1.2.2		- Bug fix:	Fixed reset notice from appearing when it shouldn't
+	
 	1.2.1		- Bug fix:	Fixed settings not saving/resetting
 				- Bug fix:	Temporarily disabled contextual help due to WP 3.3 incompatibility
 				- Enhance:	Added SGR_SERP_HOME constant
@@ -86,7 +88,7 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_SERP_URL', WP_PLUGIN_URL.'/serial-posts' );
 define( 'SGR_SERP_DIR', WP_PLUGIN_DIR.'/serial-posts' );
-define( 'SGR_SERP_VER', '1.2.1' );
+define( 'SGR_SERP_VER', '1.2.2' );
 define( 'SGR_SERP_DOMAIN', 'serial-posts' );
 define( 'SGR_SERP_WP_VERSION_REQ', '2.8' );
 define( 'SGR_SERP_FILE_NAME', 'serial-posts/serial-posts-plugin.php' );

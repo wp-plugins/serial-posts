@@ -4,7 +4,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2012
  * @package serial_posts
- * @version 1.2.1
+ * @version 1.2.2
  *
  * Sanitise Settings screen Options input.
  * register_settings() callback function.
@@ -13,8 +13,8 @@
  */
 
 /* Prevent direct access to this file */
-if (!defined('ABSPATH')) {
-	exit( __('Sorry, you are not allowed to access this file directly.') );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( _( 'Sorry, you are not allowed to access this file directly.' ) );
 }
 
 
@@ -32,7 +32,7 @@ function serp_sanitise($input) {
 	
 	/* If RESET button has been clicked, reset the options, and don't bother sanitising */
 	
-	if ( $input['reset'] ) {
+	if ( isset( $input['reset'] ) ) {
 		
 		// put back the defaults
 		$input = serp_default_options();
