@@ -2,7 +2,7 @@
 /*
 Plugin Name: Serial Posts Plugin
 Plugin URI: http://www.studiograsshopper.ch/serial-posts/
-Version: 1.2.1
+Version: 1.2.2
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Allows you to assign Posts and Pages to a Serial, using custom fields, and then displays a list of all Posts/Pages assigned to the same Serial.
