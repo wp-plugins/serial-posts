@@ -12,7 +12,7 @@ Stable tag: 1.2.2
 Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. 
 
 
-== Description==
+== Description ==
 
 This plugin allows you to assign a Serial name, using custom fields, to your Posts and Pages and then automatically displays a list of other Posts/Pages which have the same Serial name when viewing a Post or Page which belongs to the same Serial name. You can create as many Serials as you need, therefore allowing you to create multiple groupings of Posts/Pages. Designed for authors who wish to group Posts and Pages into series - independently of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any Posts and Pages that you wish to group together, to create a wide variety of "related post" or other Post/Page groupings. 
 
