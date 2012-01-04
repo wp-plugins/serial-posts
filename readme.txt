@@ -20,7 +20,6 @@ This plugin allows you to assign a Serial name, using custom fields, to your Pos
 **Key Features**
 ----------------
 
-* NEW in 1.2 - New option for selecting UL or OL tags for the list, and new CSS class for the list heading.
 * The Serial Posts list can be displayed using either the [serialposts] shortcode in the Write Post/Page Editor, or by using the Serial Posts template tag in your theme template files.
 * The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post, or where you insert the Serial Posts template tag in your template file.
 * You can create as many different Serials as you wish. Limitation: Currently it is not possible to assign more than one Serial name to any one Post or Page.
@@ -28,7 +27,6 @@ This plugin allows you to assign a Serial name, using custom fields, to your Pos
 * Configurable Heading for the Serial Posts list.
 * Valid xhtml output.
 * Highly customisable CSS styling of the Heading and Serial Posts list.
-* Note: Version 1.1+ requires WP/WPMU 2.8+ 
 
 
 **Further information**
