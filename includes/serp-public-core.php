@@ -8,11 +8,11 @@
  * @version 1.3
  *
  * These are the 'public' functions which produce the Serial Posts lists in the front end
- * Defines template tag		serial_posts()
- * Defines shortcode			serp_shortcode()
- * Defines list constructor	serial_posts_build()
+ * Defines template tag - serial_posts()
+ * Defines shortcode - serp_shortcode()
+ * Defines list constructor - serial_posts_build()
  *
- *	@since	1.1
+ * @since 1.1
  */
 
 /* Prevent direct access to this file */

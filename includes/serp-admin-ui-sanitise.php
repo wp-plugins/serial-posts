@@ -1,6 +1,7 @@
 <?php
 /**
- * ********************************************
+ * Sanitisation callback for Settings
+ *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2013
  * @package serial_posts
@@ -47,7 +48,7 @@ function serp_sanitise($input) {
 	/***** Some error messages for later *****/
 	
 	// Generic error message - triggered by wp_die
-	$sanitise_error = esc_attr__('An error has occurred. Go back and try again.', 'serial-posts' );
+	$sanitise_error = esc_attr__( 'An error has occurred. Go back and try again.', 'serial-posts' );
 	
 	
 	/***** Now correct certain options *****/
