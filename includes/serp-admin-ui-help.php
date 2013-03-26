@@ -126,10 +126,16 @@ function serp_help_general() {
 	
 	<ul>
 	
-	<li><?php _e( 'Allows you to assign Posts and Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'The Serial Posts plugin allows you to assign a Serial name to your Posts and Pages, using custom fields, and then displays in the single post/page view a list of all Posts and Pages assigned to the same Serial. Designed for authors who wish to group Posts and Pages into series - independently of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any Posts and Pages that you wish to group together, to create a wide variety of "related post" or other Post/Page groupings.', 'serial-posts' ); ?></li>
 	
-	<li><?php _e( 'Designed for authors who wish to group Posts and Pages into series - independently of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any Posts and Pages that you wish to group together, to create a wide variety of "related post" or other Post/Page groupings.', 'serial-posts' ); ?></li>
-	<li><strong><?php _e( 'Limitation:', 'serial-posts' ); ?></strong> <?php _e( 'Currently it is not possible to assign more than one Serial name to any one Post or Page.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'The Serial Posts list is displayed using the [serialposts] shortcode in the Write Post/Page Editor.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'You can create as many different Serials as you wish. Limitation: Currently it is not possible to assign more than one Serial name to any one Post or Page.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'User options for including the currently viewed post in the list, with or without a link.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'Configurable Heading for the Serial Posts list.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'Valid xhtml output.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'Highly customisable CSS styling of the Heading and Serial Posts list.', 'serial-posts' ); ?></li>
+	<li><?php _e( 'A Serial Posts template tag is also available for advanced users.', 'serial-posts' ); ?></li>
 	
 	</ul>
 	
