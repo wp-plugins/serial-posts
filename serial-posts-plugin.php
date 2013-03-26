@@ -40,6 +40,8 @@ Feature:	means new user functionality has been added
 * Enhance:	Added activation hook to check WP minimum version
 * Enhance:	Changed textdomain calls to text, rather than constant, in _e() and __() functions
 * Enhance:	Moved all file includes and add_action/add_filter calls to _init function
+* Enhance:	Removed the plugin's own admin CSS/JS. It was unnecessary to have this.
+* Feature:	Detailed Contextual Help now added to the plugin's Settings page.
 
 = 1.2.2 =
 * Bug fix:	Fixed reset notice from appearing when it shouldn't
@@ -194,10 +196,6 @@ function serp_init() {
 		/* Admin - Adds Settings page */
 		// Function defined in serp-admin-core.php
 		add_action('admin_menu', 'serp_add_page');
-
-		/* Admin - Contextual Help to Settings page */
-		// Function defined in serp-admin-ui-help.php
-		//add_filter('contextual_help', 'serp_admin_help', 10, 2);
 
 		/* Admin - Adds WP version warning on main Plugins screen */
 		// Function defined in serp-admin-core.php
