@@ -2,9 +2,9 @@
 /**
  * ********************************************
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2012
+ * @copyright Copyright 2008-2013
  * @package serial_posts
- * @version 1.2.2
+ * @version 1.3
  *
  * Sanitise Settings screen Options input.
  * register_settings() callback function.
@@ -25,7 +25,7 @@ function serp_sanitise($input) {
 	
 	// Is the user allowed to do this? Probably not needed...
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-		die( __('Sorry. You do not have permission to do this.', SGR_SERP_DOMAIN) );
+		die( __('Sorry. You do not have permission to do this.', 'serial-posts' ) );
 	}
 	
 	
@@ -47,7 +47,7 @@ function serp_sanitise($input) {
 	/***** Some error messages for later *****/
 	
 	// Generic error message - triggered by wp_die
-	$sanitise_error = esc_attr__('An error has occurred. Go back and try again.', SGR_SERP_DOMAIN);
+	$sanitise_error = esc_attr__('An error has occurred. Go back and try again.', 'serial-posts' );
 	
 	
 	/***** Now correct certain options *****/

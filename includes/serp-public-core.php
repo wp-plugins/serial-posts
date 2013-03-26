@@ -1,10 +1,11 @@
 <?php
 /**
- * ********************************************
+ * SP Front End functions for displaying the SP Lists
+ *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2012
+ * @copyright Copyright 2008-2013
  * @package serial_posts
- * @version 1.2.2
+ * @version 1.3
  *
  * These are the 'public' functions which produce the Serial Posts lists in the front end
  * Defines template tag		serial_posts()
@@ -15,48 +16,51 @@
  */
 
 /* Prevent direct access to this file */
-if (!defined('ABSPATH')) {
-	exit( __('Sorry, you are not allowed to access this file directly.', SGR_SERP_DOMAIN) );
+if ( !defined( 'ABSPATH' ) ) {
+	exit( __( 'Sorry, you are not allowed to access this file directly.' ) );
 }
 
 
 
-/**	Template tag to display Serial Posts lists in template files
-*
-*	Do not use in the Loop.
-*
-*	@uses	serial_posts_build()
-*	@since	0.9
-*/
+/**
+ * Template tag to display Serial Posts lists in template files
+ *
+ * Do not use in the Loop.
+ *
+ * @uses serial_posts_build()
+ * @since 0.9
+ */
 function serial_posts() {
 	$serp_result = serial_posts_build();
 	echo $serp_result;
 }
 
 
-/**	Shortcode tag to display Serial Posts lists in post/page write/edit screens
-*
-*	Use [serialposts] in post/page edit/write
-*	See add_shortcode in serial-posts-plugin.php
-*
-*	@uses	serial_posts_build()
-*	@since	1.0
-*/
+/**
+ * Shortcode tag to display Serial Posts lists in post/page write/edit screens
+ *
+ * Use [serialposts] in post/page edit/write
+ * See add_shortcode in serial-posts-plugin.php
+ *
+ * @uses serial_posts_build()
+ * @since 1.0
+ */
 function serp_shortcode() {
 	$serp_result = serial_posts_build();
 	return $serp_result;
 }
 
 
-/**	Function to build Serial Posts lists
-*
-*	Used by	serp_shortcode()
-*	Used by	serial_posts()
-*
-*	Pulls associated posts/pages from db if a Serial name has been assigned to the post/page
-*
-*	@since	0.9
-*/
+/**
+ * Function to build Serial Posts lists
+ *
+ * Used by serp_shortcode()
+ * Used by serial_posts()
+ *
+ * Pulls associated posts/pages from db if a Serial name has been assigned to the post/page
+ *
+ * @since 0.9
+ */
 function serial_posts_build() {
 	
 	global $id, $post, $serp_options;

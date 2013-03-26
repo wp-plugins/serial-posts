@@ -3,11 +3,12 @@
  * Admin Core functions - this is the parent file that handles all the backend
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2012
+ * @copyright Copyright 2008-2013
  * @package serial_posts
- * @version 1.2.2
+ * @version 1.3
  *
  * Core Admin Functions called by various add_filters and add_actions:
+ * - Load textdomain
  * - Register Settings
  * - Add Settings Page
  * - Plugin action links
@@ -29,6 +30,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
+/**	
+ * Load textdomain for Internationalisation functionality
+ *
+ *
+ * Called by serp_add_page() in serp-wp-ui.php
+ *
+ * Loads textdomain if $serp_text_loaded (global variable) is false
+ *
+ * Note: .mo file should be named dynamic_content_gallery-xx_XX.mo and placed in the DCG plugin's languages folder.
+ * xx_XX is the language code
+ * For example, for French, file should be named: dynamic_content_gallery-fr_FR.mo
+ *
+ * WP_LANG constant must also be defined correctly in wp-config.php.
+ *
+ * @since 1.0
+ * @updated 1.3
+ */
+function serp_load_textdomain() {
+	
+	global $serp_text_loaded;
+   	
+	// If textdomain is already loaded, do nothing
+	if ( $serp_text_loaded )
+		return;
+	
+	// Textdomain isn't already loaded, let's load it
+	// $domain = serial-posts, $abs_rel_path = false, $plugin_rel_path = SGR_SERP_LANG_DIR_REL )
+   	load_plugin_textdomain( 'serial-posts', false, SGR_SERP_LANG_DIR_REL );
+   	
+	// Change variable to prevent loading textdomain again
+	$serp_text_loaded = true;
+}
+
+
+
 /***** Admin Init *****/
 
 /** 
@@ -36,12 +72,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Hooked to 'admin_init'
  *
- * settings_fields()	serp_plugin_settings 	= Options Group name (do_settings name)
- * serial_posts_settings 			= Option Name in db
+ * Note: This function ws previously named serp_init()
+ *
+ * settings_fields() serp_plugin_settings = Options Group name (do_settings name)
+ * serial_posts_settings = Option Name in db
  *
  * @since 1.1
+ * @updated 1.3
  */
-function serp_init() {
+function serp_admin_init() {
 
 	// $page, the slug of the settings page as per its URL (also used by do_settings_section)
 	$page = 'serial_posts';
@@ -55,29 +94,29 @@ function serp_init() {
 	//add_settings_section('serp_general', '', 'serp_general_text', 'serial_posts');
 	
 	// ID of section, display title (not used), callback function for display, $page(do_settings_section name)
-	add_settings_section('serp_listoptions', '', 'serp_listoptions_text', $page);
+	add_settings_section('serp_display_settings', '', 'serp_display_settings', $page);
 	
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_text_before_serial_name', __('Text before Serial name:', SGR_SERP_DOMAIN), 'serp_text_before_serial_name_field', 'serial_posts', 'serp_listoptions');
+	add_settings_field('serp_text_before_serial_name', __('Text before Serial name:', 'serial-posts'), 'serp_text_before_serial_name_field', 'serial_posts', 'serp_display_settings');
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_text_after_serial_name', __('Text after Serial name:', SGR_SERP_DOMAIN), 'serp_text_after_serial_name_field', 'serial_posts', 'serp_listoptions');
+	add_settings_field('serp_text_after_serial_name', __('Text after Serial name:', 'serial-posts'), 'serp_text_after_serial_name_field', 'serial_posts', 'serp_display_settings');
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_hide_serial_name', __('Hide Serial name:', SGR_SERP_DOMAIN), 'serp_hide_serial_name_field', $page, 'serp_listoptions');
+	add_settings_field('serp_hide_serial_name', __('Hide Serial name:', 'serial-posts'), 'serp_hide_serial_name_field', $page, 'serp_display_settings');
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_list_type', __('List type &lt;ul&gt; or &lt;ol&gt;:', SGR_SERP_DOMAIN), 'serp_list_type_field', $page, 'serp_listoptions');
+	add_settings_field('serp_list_type', __('List type &lt;ul&gt; or &lt;ol&gt;:', 'serial-posts'), 'serp_list_type_field', $page, 'serp_display_settings');
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_list_ul_class', __('List &lt;ul&gt;/&lt;ol&gt; class:', SGR_SERP_DOMAIN), 'serp_list_ul_class_field', $page, 'serp_listoptions');
+	add_settings_field('serp_list_ul_class', __('List &lt;ul&gt;/&lt;ol&gt; class:', 'serial-posts'), 'serp_list_ul_class_field', $page, 'serp_display_settings');
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_include_current_post', __('Include current post:', SGR_SERP_DOMAIN), 'serp_include_current_post_field', $page, 'serp_listoptions');
+	add_settings_field('serp_include_current_post', __('Include current post:', 'serial-posts'), 'serp_include_current_post_field', $page, 'serp_display_settings');
 	
 	// ID of field, field title, callback for display, $page(do_settings_section name), ID of related section, $args(not used)
-	add_settings_field('serp_link_current_post', __('Show current post as a link:', SGR_SERP_DOMAIN), 'serp_link_current_post_field', $page, 'serp_listoptions');
+	add_settings_field('serp_link_current_post', __('Show current post as a link:', 'serial-posts'), 'serp_link_current_post_field', $page, 'serp_display_settings');
 }
 
 
@@ -87,8 +126,10 @@ function serp_init() {
 /**
  * Create Admin settings page and populate options
  *
+ * Hooked to 'admin_menu'
+ *
  * @uses serp_options_page() - add_options_page callback
- * @uses serp_set_gallery_options()
+ * @uses serp_load_options()
  *
  * @since 0.9
  * @updated 1.3
@@ -98,7 +139,7 @@ function serp_add_page() {
 	global $serp_page_hook;
 	
 	// Populate plugin's options - now runs before Settings Page is loaded. Duh!
-	serp_set_gallery_options();
+	serp_load_options();
 	
 	// Add Settings Page
 	$serp_page_hook = add_options_page( 'Serial Posts Options', 'Serial Posts', 'manage_options', SGR_SERP_FILE_HOOK, 'serp_options_page' );
@@ -111,6 +152,8 @@ function serp_add_page() {
  * This is the callback for add_options_page in serp_add_page()
  *
  * @since 0.9
+ *
+ * @global array $serp_options, plugin options from db
  */	
 function serp_options_page(){
 	global $serp_options;
@@ -164,16 +207,19 @@ function serp_plugin_meta( $links, $file ) {
 	if( $file == SGR_SERP_FILE_NAME ) {
 	
 		// Create links
-		$settings_link = '<a href="admin.php?page=' . SGR_SERP_FILE_HOOK . '">' . __('Settings') . '</a>';
-		$config_link = '<a href="http://www.studiograsshopper.ch/serial-posts/configuration/" target="_blank">' . __('Configuration Guide', SGR_SERP_DOMAIN) . '</a>';
-		$faq_link = '<a href="http://www.studiograsshopper.ch/serial-posts/faq/" target="_blank">' . __('FAQ', SGR_SERP_DOMAIN) . '</a>';
-		$tut_link = '<a href="http://www.studiograsshopper.ch/serial-posts/tutorial/" target="_blank">' . __('Tutorial', SGR_SERP_DOMAIN) . '</a>';
-		$donation_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=10131319">' . __('Donate', SGR_SERP_DOMAIN) . '</a>';
+		$settings_link = sprintf( '<a href="admin.php?page=%s">%s</a>', SGR_SERP_FILE_HOOK, __('Settings') );
+		
+		$config_link = sprintf( '<a href="%s" target="_blank">%s</a>', SGR_SERP_HOME . 'configuration/', __( 'Configuration Guide', 'serial-posts' ) );
+		
+		$faq_link = sprintf( '<a href="%s" target="_blank">%s</a>', SGR_SERP_HOME . 'faq/', __( 'FAQ', 'serial-posts' ) );
+		
+		$tut_link = sprintf( '<a href="%s" target="_blank">%s</a>', SGR_SERP_HOME . 'tutorial/', __( 'Tutorial', 'serial-posts' ) );
+		
+		$donation_link = sprintf( '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=10131319">%s</a>', __( 'Donate', 'serial-posts' ) );
 		
 		return array_merge(
 			$links,
 			array( $settings_link, $config_link, $faq_link, $tut_link, $donation_link )
-			
 		);
 	}
  
@@ -181,82 +227,15 @@ function serp_plugin_meta( $links, $file ) {
 }
 
 
-/**	Function to do WP Version check
-*
-*	SP v1.1 requires WP 2.8+ to run. This function prints a warning
-*	message in the main Plugins screen and on the Serial Posts Settings page if version is less than 2.8.
-*
-*	Called by add_filter('after_action_row_$plugin', )
-*
-*	@since	1.1
-*/	
-function serp_wp_version_check() {
-	
-	$wp_valid = version_compare(get_bloginfo("version"), SGR_SERP_WP_VERSION_REQ, '>=');
-	
-	$current_page = basename($_SERVER['PHP_SELF']);
-	
-	// Check we are on the right screen
-	if( $current_page == "plugins.php" ) {
-	
-		if( $wp_valid ) {
-			// Do nothing
-			return;
-			
-		} elseif( !function_exists('wpmu_create_blog') ) {
-			// We're in WP
-			$version_message = '<tr class="plugin-update-tr"><td class="plugin-update" colspan="3">';
-			$version_message .= '<div class="update-message" style="background:#FFEBE8;border-color:#BB0000;">';
-			$version_message .= __('Warning! This version of Serial Posts requires Wordpress', SGR_SERP_DOMAIN) . ' <strong>' . SGR_SERP_WP_VERSION_REQ . '</strong>+ ' . __('Please upgrade Wordpress to run this plugin.', SGR_SERP_DOMAIN);
-			$version_message .= '</div></td></tr>';
-			echo $version_message;
-			
-		} else {
-			// We're in WPMU
-			$version_message = '<tr class="plugin-update-tr"><td class="plugin-update" colspan="3">';
-			$version_message .= '<div class="update-message" style="background:#FFEBE8;border-color:#BB0000;">';
-			$version_message .= __('Warning! This version of Serial Posts requires WPMU', SGR_SERP_DOMAIN) . ' <strong>' . SGR_SERP_WP_VERSION_REQ . '</strong>+ ' . __('Please contact your Site Administrator.', SGR_SERP_DOMAIN);
-			$version_message .= '</div></td></tr>';
-			echo $version_message;
-		}
-	}
-	
-	// This will also show the version warning message on the SP Settings page and at the top of the Plugins page
-	// We only need to check against options-general.php because this part of the function
-	// will only be run by the calling function serp_on_load_validation() which is only run when we're on the SP page.
-	// TODO: Would be better to match against SP page hook though...
-	if( $current_page == "options-general.php" || $current_page == "plugins.php" ) {
-		
-		$version_msg_start = '<div class="error"><p>';
-		$version_msg_end = '</p></div>';
-		
-		if( wp_valid ) {
-			// Do nothing
-			return;
-			
-		} elseif( !function_exists('wpmu_create_blog') ) {
-			// We're in WP
-			$version_msg .= '<strong>' . __('Warning! This version of Serial Posts requires Wordpress', SGR_SERP_DOMAIN) . ' ' . SGR_SERP_WP_VERSION_REQ . '+ ' . __('Please upgrade Wordpress to run this plugin.', SGR_SERP_DOMAIN) . '</strong>';
-			echo $version_msg_start . $version_msg . $version_msg_end;
-			
-		} else {
-			// We're in WPMU
-			$version_msg .= '<strong>' . __('Warning! This version of Serial Posts requires WPMU', SGR_SERP_DOMAIN) . ' ' . SGR_SERP_WP_VERSION_REQ . '+ ' . __('Please contact your Site Administrator.', SGR_SERP_DOMAIN) . '</strong>';
-			echo $version_msg_start . $version_msg . $version_msg_end;
-		}
-	}
-}
-
-
 /**
- * Function to display Admin Notices
+ * Display Admin Notice when Settings are Reset
  *
- * Hooked to admin_notices action
- *
- * Displays Admin Notices after Settings are reset, etc
- *
+ * Hooked to 'admin_notices'
  *
  * @since 1.1
+ *
+ * @global array $serp_options, plugin options from db
+ * @global object $current_screen, WP Screen object
  */	
 function serp_admin_notices() {
 	
@@ -267,7 +246,7 @@ function serp_admin_notices() {
 	
 	if( $serp_options['just-reset'] == 'true' ) {
 	
-		printf( '<div id="message" class="updated fade" style="background-color:#ecfcde; border:1px solid #a7c886;"><p><strong>%s</strong></p></div>', __( 'Serial Posts Settings have been reset to default settings.', SGR_SERP_DOMAIN ) );
+		printf( '<div id="message" class="updated fade" style="background-color:#ecfcde; border:1px solid #a7c886;"><p><strong>%s</strong></p></div>', __( 'Serial Posts Settings have been reset to default settings.', 'serial-posts' ) );
 
 		// Reset just-reset to false and update options accordingly
 		$serp_options['just-reset'] = 'false';
@@ -276,24 +255,50 @@ function serp_admin_notices() {
 }
 
 
+/**
+ * Check if required WP version is installed
+ * 
+ * Used by dfcg_checks_plugins_page() and dfcg_checks_settings_page()
+ *
+ * @since 1.3
+ * @return bool Returns true if WP minimum required version is installed
+ */
+function serp_wp_version_check() {
+
+	$version_ok = version_compare( get_bloginfo( "version" ), SGR_SERP_WP_VERSION_REQ, '>=' );
+	
+	if( $version_ok )
+		return true;
+	else
+		return false;
+}
+
+
 
 /***** Options handling and upgrading *****/
 
-/**	Function for adding default options
-*	
-*	Contains the latest version's default options.
-*	Populates the options on first install (not upgrade) and
-*	when Settings Reset is performed.
-*
-*	Used by the "upgrader" function serp_set_gallery_options().
-*	
-*	8 options
-*
-*	@since	0.9	
-*/
+/**
+ * Default plugin options
+ *	
+ * Contains the latest version's default options.
+ * Populates the options on first install (not upgrade) and
+ * when Settings Reset is performed.
+ *
+ * Note: 'reset' option is not set by default as it is initialised
+ * by the user when the Settings page Reset button is clicked.
+ * @see serp_admin_notices()
+ *
+ * Used by the "upgrader" function serp_load_options().
+ *	
+ * 8 options
+ *
+ * @since 0.9
+ * 
+ * @return array $defaults, array of default settings for use by the plugin.
+ */
 function serp_default_options() {
-	// Add WP/WPMU options - we'll deal with any differences in the Admin screens
-	$serp_default_options = array(
+	
+	$defaults = array(
 		'pre_text' => 'You are reading',
 		'post_text' => 'Read more from this series of articles.',
 		'ul_class' => 'serial-posts',
@@ -301,114 +306,190 @@ function serp_default_options() {
 		'link_current' => '0',
 		'hide_serial_name' => '0',
 		'just-reset' => 'false',
-		'list-type' => 'ul',	// Options are ul or ol
-		//'reset' => 'false'
+		'list-type' => 'ul'	// Options are ul or ol
 	);
 	
 	// Return options array for use elsewhere
-	return $serp_default_options;
+	return $defaults;
 }
 
 
-/**	Function for upgrading options
-*	
-*	Loads options on admin_menu hook.
-*	Includes "upgrader" routine to update existing install.
-*
-*	Called by serp_add_page() which is hooked to admin_menu
-*
-*	In 1.0	Settings are stored in serp_plugin_settings
-*	In 1.1	serp_plugin_settings is deprecated in favour of serial_posts_settings
-*	In 1.1	Added "Hide Serial name" option
-*	In 1.1	Added just-reset option
-*	In 1.1	"Reset" is deprecated as a stored option (resetting is handled by a button now)
-*	In 1.2	"list-type" added
-*	In 1.2	No change
-*
-*	@uses 	serp_default_options()
-*	@since	1.1	
-*/
-function serp_set_gallery_options() {
+/**
+ * Plugin upgrader
+ *
+ * Called by serp_add_page() which is hooked to 'admin_menu'
+ *
+ * ver 1.0 - settings are stored in serp_plugin_settings
+ *
+ * ver 1.1 - serp_plugin_settings is deprecated in favour of serial_posts_settings
+ * ver 1.1 - added 'hide_serial_name' option
+ * ver 1.1 - added 'just-reset' option
+ * ver 1.1 - "Reset" is deprecated as a stored option (resetting is handled by a button now)
+ *
+ * ver 1.2 - added "list-type"
+ * ver 1.2 - No change
+ *
+ * ver 1.2.1 - No change 
+ *
+ * ver 1.2.2 - No change
+ *
+ * ver 1.3 - No change
+ *
+ * @since 1.1
+ *
+ * @uses serp_default_options()
+ */
+function serp_load_options() {
 	
-	// Get currently stored options
-	$serp_existing = get_option( 'serial_posts_settings' ); 	// v1.1+
-	$serp_old = get_option( 'serp_plugin_settings' );			// v0.9 and v1.0
-	$serp_version = get_option( 'serial_posts_version' );
+	// Get current version number
+	$version = get_option( 'serial_posts_version' );
 	
-	
-	// We're in the current version already
-	if( $serp_existing && $serp_version == SGR_SERP_VER ) {
-	
-		// Nothing to do here...
+	// Existing version is same as this version - nothing to do here...
+	if( $version == SGR_SERP_VER )
 		return;
+
 	
+	/***** Ok, we need to do stuff now, let's prepare *****/
+
+	// See what we have currently stored
+	$existing = get_option( 'serial_posts_settings' ); 	// v1.1+
+	$legacy = get_option( 'serp_plugin_settings' );		// v0.9 and v1.0
 	
-	// We're upgrading from 1.2.1 to 1.2.2
-	} elseif( $serp_existing && $serp_version == '1.2.1' ) {
+
 	
-		if ( isset( $serp_existing['reset'] ) )
-			unset( $serp_existing['reset'] );
+	/***** Clean install - it's a wasteland here *****/
 	
-		// Update settings in db
-		update_option('serial_posts_settings', $serp_existing);
+	if( empty( $existing ) && empty( $legacy ) ) {
+
+		$new = serp_default_options();
+
+		add_option( 'serial_posts_settings', $new );
+		add_option( 'serial_posts_version', SGR_SERP_VER );
+
+		return;
+	}
+
+	
+	/***** Logic check in case old $version exists but there are no $existing - eg bad uninstall *****/
+	
+	if( $version && empty( $existing ) ) {
 		
-		// Update version no. in the db
-		update_option('serial_posts_version', SGR_SERP_VER);
-	
-	// We're upgrading from 1.2 to 1.2.1
-	} elseif( $serp_existing && $serp_version == '1.2' ) {
-	
-		// Add new options = none
+		$new_opts = serp_default_options(); // Clean reinstall
 		
+		add_option( 'serial_posts_settings', $new_opts );
+		update_option( 'serial_posts_version', SGR_SERP_VER );
 		
-		// Update settings in db
-		update_option('serial_posts_settings', $serp_existing);
+		return;
+	}
+	
+
+	/***** Logic check in case $version doesn't exist but there are $existing *****/
+	
+	if( empty( $version ) && $existing ) {
+		$existing_version = '1.0'; // Force upgrades to be run
+	}
+
+
+	/***** Now do upgrade routines *****/
+
+	
+	/***** Upgrade to 1.1 from 1.0 *****/
+	if ( version_compare( $version, '1.1', '<' ) ) {
 		
-		// Update version no. in the db
-		update_option('serial_posts_version', SGR_SERP_VER);
-	
-	// We're upgrading from 1.1 to 1.2
-	} elseif( $serp_existing && $serp_version == '1.1' ) {
-	
+		// Move old options to new options array
+		if( $legacy ) {
+
+			$existing = array();
+			
+			foreach( $legacy as $key => $value ) {
+
+				$existing[$key] = $value;
+			}
+		}
+
 		// Add new options
-		$serp_existing['list-type'] = 'ul';
-		
-		// Update settings in db
-		update_option('serial_posts_settings', $serp_existing);
-		
-		// Update version no. in the db
-		update_option('serial_posts_version', SGR_SERP_VER);
-	
-	
-	// We're upgrading from v0.9 or v1.1
-	} elseif( $serp_old && !$serp_prev_version ) {
-		
-		// Add v1.1 options
-		$serp_old['hide_serial_name'] = '0';
-		$serp_old['just-reset'] = 'false';
-		$serp_old['list-type'] = 'ul';
+		$new_opts['hide_serial_name'] = '0';
+		$new_opts['just-reset'] = 'false';
 		
 		// Delete "reset" option, now deprecated
-		unset( $serp_old['reset'] );
-		
-		// Update settings in db
-		update_option('serial_posts_settings', $serp_old);
-		
-		// Update version no. in the db
-		update_option('serial_posts_version', SGR_SERP_VER);
-		
-		// Remove old settings from db - they're not needed anymore
-		delete_option('serp_plugin_settings');
-	
-	
-	// It's a clean install
-	} else {
-		
-		// Add the new options
-		$serp_new = serp_default_options();
-		add_option('serial_posts_settings', $serp_new );
-		
-		// Add version to the options db
-		add_option('serial_posts_version', SGR_SERP_VER );
+		unset( $existing['reset'] );
+
+		// Total options = 6 + 2 - 1 = 7
+		$updated = wp_parse_args( $existing, $new_opts );
+
+		update_option( 'serial_posts_settings', $updated );
 	}
+
+
+	/***** Upgrade to 1.2 from 1.1 *****/
+	if ( version_compare( $version, '1.2', '<' ) ) {
+
+		$existing = get_option( 'serial_posts_settings' );		
+
+		$new_opts['list-type'] = 'ul';
+
+		// Total options = 7 + 1 = 8
+		$updated = wp_parse_args( $existing, $new_opts );
+
+		update_option( 'serial_posts_settings', $updated );
+
+	}
+
+
+	/***** Upgrade to 1.2.1 from 1.2 *****/
+	if ( version_compare( $version, '1.2.1', '<' ) ) {
+
+		// No changes
+	}
+
+
+	/***** Upgrade to 1.2.2 from 1.2.1 *****/
+	if ( version_compare( $version, '1.2.2', '<' ) ) {
+
+		// No changes
+	}
+
+
+	/***** Upgrade to 1.2.3 from 1.2.2 *****/
+	if ( version_compare( $version, '1.2.3', '<' ) ) {
+
+		$existing = get_option( 'serial_posts_settings' );
+		$legacy = get_option( 'serp_plugin_settings' );
+
+		// Clear old old options, if any
+		if( $legacy && $existing ) 
+			delete_option( 'serp_plugin_settings' );
+
+
+		// Rename options
+		$new_opts['pre-text'] = $existing['pre_text'];
+		$new_opts['post-text'] = $existing['post_text'];
+		$new_opts['ul-class'] = $existing['ul_class'];
+		$new_opts['list-current'] = $existing['list_current'];
+		$new_opts['link-current'] = $existing['link_current'];
+		$new_opts['hide-serial-name'] = $existing['hide_serial_name'];
+
+		// Delete old
+		unset( $existing['pre_text'] );
+		unset( $existing['post_text'] );
+		unset( $existing['ul_class'] );
+		unset( $existing['list_current'] );
+		unset( $existing['link_current'] );
+		unset( $existing['hide_serial_name'] );
+
+		// Total options = 8
+		$updated = wp_parse_args( $existing, $new_opts );
+
+		update_option( 'serial_posts_settings', $updated );
+	}
+	
+	
+	/***** Upgrade to 1.3 from 1.2.3 *****/
+	if ( version_compare( $version, '1.3', '<' ) ) {
+
+		// No changes
+	}
+
+	// FINALLY, Update version no. in the db
+	update_option( 'serial_posts_version', SGR_SERP_VER );
 }
