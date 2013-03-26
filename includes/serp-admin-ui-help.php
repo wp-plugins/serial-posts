@@ -92,11 +92,11 @@ function serp_help_sidebar() {
 	$sidebar .= 'Version: ' . SGR_SERP_VER;
 	
 	$sidebar .= '<ul>';
-	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'">'. __( 'Plugin Homepage', 'serial-posts' ) .'</a></li>'; 
-	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'configuration/">'. __( 'Configuration Guide', 'serial-posts' ) . '</a></li>';
-	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'tutorial/">'. __( 'Tutorial', 'serial-posts' ) . '</a></li>';
-	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'faq/">'. __( 'FAQ', 'serial-posts' ) . '</a></li>';
-	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'changelog/">'. __( 'Change Log', 'serial-posts' ) . '</a></li>';
+	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'/">'. __( 'Plugin Homepage', 'serial-posts' ) .'</a></li>'; 
+	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'/configuration/">'. __( 'Configuration Guide', 'serial-posts' ) . '</a></li>';
+	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'/tutorial/">'. __( 'Tutorial', 'serial-posts' ) . '</a></li>';
+	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'/faq/">'. __( 'FAQ', 'serial-posts' ) . '</a></li>';
+	$sidebar .= '<li><a target="_blank" href="'.SGR_SERP_HOME .'/changelog/">'. __( 'Change Log', 'serial-posts' ) . '</a></li>';
 	$sidebar .= '<li><a target="_blank" href="'.SGR_SUPPORT_URL.'">'. __( 'Support Forum', 'serial-posts' ) . '</a></li>';
 	$sidebar .= '</ul>';
 	

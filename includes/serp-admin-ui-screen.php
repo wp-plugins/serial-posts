@@ -58,7 +58,7 @@ $serp_options = get_option( 'serial_posts_settings' );
 	<div class="sgr-credits">
 		<p><?php _e( 'For further information please visit these resources:', 'serial-posts' ); ?></p>
 		<p>
-			<a href="<?php echo SGR_SERP_HOME; ?>"><?php _e( 'Serial Posts homepage', 'serial-posts' ); ?></a> | 
+			<a href="<?php echo SGR_SERP_HOME; ?>/"><?php _e( 'Serial Posts homepage', 'serial-posts' ); ?></a> | 
 			<a href="<?php echo SGR_SERP_HOME; ?>/configuration/"><?php _e( 'Configuration guide', 'serial-posts' ); ?></a> | 
 			<a href="<?php echo SGR_SERP_HOME; ?>/tutorial/"><?php _e( 'Tutorial', 'serial-posts' ); ?></a> | 
 			<a href="<?php echo SGR_SERP_HOME; ?>/faq/"><?php _e( 'FAQ', 'serial-posts' ); ?></a> | 

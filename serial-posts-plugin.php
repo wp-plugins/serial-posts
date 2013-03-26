@@ -111,7 +111,7 @@ define( 'SGR_SERP_WP_VERSION_REQ',	'3.3' );
 define( 'SGR_SERP_FILE_NAME',		'serial-posts/serial-posts-plugin.php' );
 define( 'SGR_SERP_FILE_HOOK',		'serial_posts' );
 define( 'SGR_SERP_PAGEHOOK',		'settings_page_'.SGR_SERP_FILE_HOOK );
-define( 'SGR_SERP_HOME',			'http://www.studiograsshopper.ch/serial-posts/' );
+define( 'SGR_SERP_HOME',			'http://www.studiograsshopper.ch/serial-posts' );
 define( 'SGR_SERP_LANG_DIR_REL', 	'/serial-posts/languages' );
 define( 'SGR_SUPPORT_URL',			'http://wordpress.org/support/plugin/serial-posts' );
 
