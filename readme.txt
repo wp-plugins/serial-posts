@@ -1,12 +1,12 @@
 === Serial Posts ===
 
-Version: 1.2.2
+Version: 1.3
 Author: Ade Walker, Studiograsshopper
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/serial-posts/
 Tags: posts,series,serial,related,post listings,custom
-Requires at least: 2.8
-Tested up to: 3.3
+Requires at least: 3.3
+Tested up to: 3.5.1
 Stable tag: 1.2.2
 
 Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. 
@@ -14,63 +14,96 @@ Allows you to assign Posts or Pages to a Serial, using custom fields, and then d
 
 == Description ==
 
-This plugin allows you to assign a Serial name, using custom fields, to your Posts and Pages and then automatically displays a list of other Posts/Pages which have the same Serial name when viewing a Post or Page which belongs to the same Serial name. You can create as many Serials as you need, therefore allowing you to create multiple groupings of Posts/Pages. Designed for authors who wish to group Posts and Pages into series - independently of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any Posts and Pages that you wish to group together, to create a wide variety of "related post" or other Post/Page groupings. 
+The Serial Posts plugin allows you to assign a Serial name to your Posts and Pages, using custom fields, and then displays in the single post/page view a list of all Posts and Pages assigned to the same Serial. Designed for authors who wish to group Posts and Pages into series - independently of the usual Wordpress Category and Tag structure - its usage does not have to be limited to this. You can create as many different Serials as you wish, and assign these to any Posts and Pages that you wish to group together, to create a wide variety of "related post" or other Post/Page groupings. 
 
 
 **Key Features**
 ----------------
 
-* The Serial Posts list can be displayed using either the [serialposts] shortcode in the Write Post/Page Editor, or by using the Serial Posts template tag in your theme template files.
-* The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post, or where you insert the Serial Posts template tag in your template file.
+* The Serial Posts list is displayed using the [serialposts] shortcode in the Write Post/Page Editor.
+* The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post.
 * You can create as many different Serials as you wish. Limitation: Currently it is not possible to assign more than one Serial name to any one Post or Page.
 * User options for including the currently viewed post in the list, with or without a link.
 * Configurable Heading for the Serial Posts list.
 * Valid xhtml output.
 * Highly customisable CSS styling of the Heading and Serial Posts list.
+* A Serial Posts template tag is also available for advanced users.
 
 
 **Further information**
 -----------------------
-Comprehensive information on installing, configuring and using the plugin can be found at http://www.studiograsshopper.ch
+Comprehensive information on installing, configuring and using the plugin can be found at http://www.studiograsshopper.ch/serial-posts/
 
 
 == Installation ==
 
+Either use the WordPress Plugin Installer (Dashboard > Plugins > Add New, then search for "serial posts"), or manually as follows:
+
 1. Download the latest version of the plugin to your computer.
 2. Extract and upload the folder **serial-posts** and its contents to your **/wp-content/plugins/** directory.  Please ensure that you do not rename any folder or filenames in the process.
-3. Activate the plugin in your Dashboard via the Admin **Plugins** menu.
-4. Configure the plugin's Settings page in Admin **Settings**.
+3. Activate the plugin in your Dashboard via the **Plugins** menu.
+4. Configure the plugin's Settings page in Dashboard **Settings**.
 
 **Upgrading from an older version**
 -----------------------------------
 
-You can use the Wordpress Automatic Plugin upgrade link in the Admin Plugins menu to automatically upgrade the plugin. 
+You can use the Wordpress Automatic Plugin upgrade link in the Dashboard Plugins menu to automatically upgrade the plugin. 
 
 
-== Instructions for use ==
+
+== Frequently Asked Questions ==
+
+**Why would I want to use this?**
+---------------------------------
+* If you are using WordPress to publish online books or tutorials, and you want to present material (ie your posts) in an "oldest first" form, and you want to do this independant of categories, tags, custom taxonomies etc, then this plugin is for you.
+* A typical usage would be for a story or article published in several "chapters", each chapter being a separate Post. 
+* If you simply want a list of related posts there are much better solutions than this plugin! :-)
+
+
+**Can I create more than one Serial?**
+--------------------------------------
+* Yes, you can create as many different Serials as you wish. However, you cannot assign a Post or a Page to more than one Serial. 
+
+
+**Why is the list of Posts displayed with oldest at the top of the list?**
+--------------------------------------------------------------------------
+* This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
+
+
+**Support**
+-----------
+
+This plugin is provided free of charge without warranty.
+
+Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
+
+If, having read the information linked to above, you cannot solve your issue, or if you find a bug, you can post a message on the plugin's [Support Forum](http://wordpress.org/extend/plugins/serial-posts/).
+
+Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible.
+
+Thanks for downloading the plugin.  Enjoy!
+
 
 
 == Using the plugin == 
 
-The plugin provides two methods for inserting the list of Serial Posts in a page: a shortcode and a template tag, either of which may be used. It is recommended that you use one or the other, but not both, in accordance with your needs and preferences.
+To illustrate a typical usage of the plugin, let's imagine that you are writing a short novel and publishing it a chapter at a time, each chapter being a separate Post.
 
-**Template tag:** Add this template tag to, typically, your single post theme template file, usually single.php or index.php, wherever you want to display the list of Posts/Pages. This tag must appear within the Loop.
+In each Post (ie chapter, to use the example above), create a custom field called Serial, with a value of "story" (without the quotes, of course).
+
+Then, insert the shortcode [serialposts] at the bottom of your Post content in the Write Post/Page editor.
+
+Now, when you view any of the "chapters", you will see the list of Serial Posts at the bottom of each "chapter" Post. This gives your readers a great way of navigating from one "chapter" to the next.
+
+The display of the Serial Posts list can be customised in the plugin's Settings page (see the *Configuring the Settings page* section below).
+
+Advanced users who, for whatever reason, prefer to use a Template Tag in their theme templates rather than the shortcode in the Post/Page Editor, can use the Serial Posts Template Tag:
 
 &lt;?php serial_posts(); ?&gt;
 
-**Shortcode:** Add this shortcode directly into the post editor when writing or editing a Post or Page.
-
-[serialposts]
 
 
-== Configuration and set-up ==
-
-
-Further information can be found at http://www.studiograsshopper.ch/serial-posts/configuration/ and a comprehensive "how to" at http://www.studiograsshopper.ch/serial-posts/tutorial/
-
-
-**Configuring the Options page**
---------------------------------
+== Configuring the Settings page ==
  
 In the Dashboard, go to Settings and open the Serial Posts Configuration page.
 
@@ -92,42 +125,20 @@ In the Dashboard, go to Settings and open the Serial Posts Configuration page.
 
 That's it!  The Settings Page is now configured.
 
+Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
 
-== Frequently Asked Questions ==
-
-**So, what does it do?**
-------------------------
-* Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
-* The position of the Serial Posts list on your page is determined by where you insert the shortcode in your Post/Page, or where you insert the Serial Posts template tag in your theme template files.
-
-
-**Download**
-------------
-
-Latest stable version is available from http://wordpress.org/extend/plugins/serial-posts/ 
-
-
-**Known Issues**
--------------------
-
-The following points should be noted:
-
-1. Although you can create as many different Serials as you wish, do not assign a Post or a Page to more than one Serial. 
-
-2. The list of Posts/Pages is displayed in ascending order, ie oldest post at the top of the list. This cannot currently be changed by the user without hacking the plugin code. I may add a user Option for the post order in a future release.
-
-
-**Support**
------------
-
-This plugin is provided free of charge without warranty.  In the event you experience problems you should visit the dedicated FAQ at http://www.studiograsshopper.ch/serial-posts/faq/.
-
-If you cannot find a solution to a problem in the FAQ visit the support forum at http://www.studiograsshopper.ch/forum/.  Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible. I don't have time to monitor the wordpress.org forums, so if you need support, use my site.
-
-Thanks for downloading the plugin.  Enjoy!
 
 
 == Changelog ==
+
+= 1.3 =
+* Released
+* Enhance: Code re-write to improve organisation of functions, etc, updated code docs
+* Enhance: Added activation hook to check WP minimum version
+* Enhance: Changed textdomain calls to text, rather than constant, in _e() and __() functions
+* Enhance: Moved all file includes and add_action/add_filter calls to _init function
+* Enhance: Removed the plugin's own admin CSS/JS. It was unnecessary to have this.
+* Feature: Detailed Contextual Help now added to the plugin's Settings page.
 
 = 1.2.2 =
 * Released 4 January 2012
