@@ -20,7 +20,7 @@ The Serial Posts plugin allows you to assign a Serial name to your Posts and Pag
 **Key Features**
 ----------------
 
-* The Serial Posts list is displayed using the [serialposts] shortcode in the Write Post/Page Editor.
+* The Serial Posts list is displayed with the [serialposts] shortcode in the Post/Page Editor.
 * The position of the Serial Posts list on your page is determined by where you insert the shortcode in your post.
 * You can create as many different Serials as you wish. Limitation: Currently it is not possible to assign more than one Serial name to any one Post or Page.
 * User options for including the currently viewed post in the list, with or without a link.
@@ -123,7 +123,7 @@ In the Dashboard, go to Settings and open the Serial Posts Configuration page.
 
 **Hide Serial Name**: By default, the Serial Name always appears in the Heading. Check this box to prevent display of the Serial Name in the Heading. Note: checking this option will also hide the "Text after Serial name".
 
-**List type &lt;ul&gt; or &lt;ol&gt;**: Select either unordered list &lt;ul&gt; or ordered list &lt;ol&gt; from the dropdown.
+**List type &lt;ul&gt; or &lt;ol&gt;**: Select to display the links as either an unordered or ordered list from the dropdown.
 
 **List &lt;ul&gt;/&lt;ol&gt; class**: To allow even greater control over the styling of the list, you may specify a class name for the list's &lt;ul&gt; or &lt;ol&gt; tag. The default is "serial-posts". Note that the plugin replaces any whitespace with hyphens.
 
