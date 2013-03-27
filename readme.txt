@@ -95,34 +95,35 @@ That's it!  The Settings Page is now configured.
 
 == Frequently Asked Questions ==
 
-**So, what does it do?**
-------------------------
-* Allows you to assign posts to a Serial, using custom fields, and then displays a list of all posts assigned to the same Serial in your single post page (usually single.php or index.php).
-* The position of the Serial Posts list on your page is determined by where you insert the shortcode in your Post/Page, or where you insert the Serial Posts template tag in your theme template files.
+**Why would I want to use this?**
+---------------------------------
+* If you are using WordPress to publish online books or tutorials, and you want to present material (ie your posts) in an "oldest first" form, and you want to do this independant of categories, tags, custom taxonomies etc, then this plugin is for you.
+* A typical usage would be for a story or article published in several "chapters", each chapter being a separate Post. 
+* If you simply want a list of related posts there are much better solutions than this plugin! :-)
 
 
-**Download**
-------------
-
-Latest stable version is available from http://wordpress.org/extend/plugins/serial-posts/ 
-
-
-**Known Issues**
--------------------
-
-The following points should be noted:
-
-1. Although you can create as many different Serials as you wish, do not assign a Post or a Page to more than one Serial. 
-
-2. The list of Posts/Pages is displayed in ascending order, ie oldest post at the top of the list. This cannot currently be changed by the user without hacking the plugin code. I may add a user Option for the post order in a future release.
+**Can I create more than one Serial?**
+--------------------------------------
+* Yes, you can create as many different Serials as you wish. However, you cannot assign a Post or a Page to more than one Serial. 
 
 
-**Support**
------------
+**Why is the list of Posts displayed with oldest at the top of the list?**
+--------------------------------------------------------------------------
+* This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
 
-This plugin is provided free of charge without warranty.  In the event you experience problems you should visit the dedicated FAQ at http://www.studiograsshopper.ch/serial-posts/faq/.
 
-If you cannot find a solution to a problem in the FAQ visit the support forum at http://www.studiograsshopper.ch/forum/.  Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible. I don't have time to monitor the wordpress.org forums, so if you need support, use my site.
+**Where can I get support or report a bug?**
+--------------------------------------------
+Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
+
+If, having read the information linked to above, you cannot solve your issue, or if you find a bug, you can post a message on the plugin's [Support Forum](http://wordpress.org/extend/plugins/serial-posts/).
+
+Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible.
+
+
+**Disclaimer**
+--------------
+* This plugin is provided free of charge without warranty.
 
 Thanks for downloading the plugin.  Enjoy!
 
