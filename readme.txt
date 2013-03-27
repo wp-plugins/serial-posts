@@ -104,12 +104,12 @@ That's it!  The Settings Page is now configured.
 
 **Can I create more than one Serial?**
 --------------------------------------
-* Yes, you can create as many different Serials as you wish. However, you cannot assign a Post or a Page to more than one Serial. 
+Yes, you can create as many different Serials as you wish. However, you cannot assign a Post or a Page to more than one Serial. 
 
 
 **Why is the list of Posts displayed with oldest at the top of the list?**
 --------------------------------------------------------------------------
-* This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
+This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
 
 
 **Where can I get support or report a bug?**
@@ -123,7 +123,7 @@ Support is provided in my free time but every effort will be made to respond to 
 
 **Disclaimer**
 --------------
-* This plugin is provided free of charge without warranty.
+This plugin is provided free of charge without warranty.
 
 Thanks for downloading the plugin.  Enjoy!
 
