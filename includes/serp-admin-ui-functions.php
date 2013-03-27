@@ -43,21 +43,21 @@ function serp_display_settings() {
 function serp_text_before_serial_name_field() {
 	global $serp_options;
 ?>
-	<textarea name="serial_posts_settings[pre_text]" cols="75" rows="2" id="serp-pre_text"><?php echo stripslashes( $serp_options['pre_text'] ); ?></textarea>
+	<textarea name="serial_posts_settings[pre-text]" cols="75" rows="2" id="serp-pre-text"><?php echo stripslashes( $serp_options['pre-text'] ); ?></textarea>
 <?php }
 
 
 function serp_text_after_serial_name_field() {
 	global $serp_options;
 ?>
-	<textarea name="serial_posts_settings[post_text]" cols="75" rows="2" id="serp-post_text"><?php echo stripslashes( $serp_options['post_text'] ); ?></textarea>
+	<textarea name="serial_posts_settings[post-text]" cols="75" rows="2" id="serp-post-text"><?php echo stripslashes( $serp_options['post-text'] ); ?></textarea>
 <?php }
 
 
 function serp_hide_serial_name_field() {
 	global $serp_options;
 ?>
-	<input name="serial_posts_settings[hide_serial_name]" type="checkbox" id="serp-hide_serial_name" value="1" <?php checked('1', $serp_options['hide_serial_name']); ?> />&nbsp;<em><?php _e('Check the box if you want to hide the Serial name from the list title. Note that this will also hide the Text after Serial name.'); ?> <?php _e('Default is UNCHECKED.', 'serial-posts' ); ?></em>
+	<input name="serial_posts_settings[hide-serial-name]" type="checkbox" id="serp-hide-serial-name" value="1" <?php checked('1', $serp_options['hide-serial-name']); ?> />&nbsp;<em><?php _e('Check the box if you want to hide the Serial name from the list title. Note that this will also hide the Text after Serial name.'); ?> <?php _e('Default is UNCHECKED.', 'serial-posts' ); ?></em>
 <?php }
 
 
@@ -74,20 +74,20 @@ function serp_list_type_field() {
 function serp_list_ul_class_field() {
 	global $serp_options;
 ?>
-	<input name="serial_posts_settings[ul_class]" id="serp-ul_class" size="20" value="<?php echo $serp_options['ul_class']; ?>" />&nbsp;<em><?php _e('Alphanumeric and hyphens only. Note that the plugin replaces any whitespace with hyphens. Default is "serial-posts".', 'serial-posts' ); ?></em>
+	<input name="serial_posts_settings[ul-class]" id="serp-ul-class" size="20" value="<?php echo $serp_options['ul-class']; ?>" />&nbsp;<em><?php _e('Alphanumeric and hyphens only. Note that the plugin replaces any whitespace with hyphens. Default is "serial-posts".', 'serial-posts' ); ?></em>
 <?php }
 
 
 function serp_include_current_post_field() {
 	global $serp_options;
 ?>
-	<input name="serial_posts_settings[list_current]" type="checkbox" id="serp-list_current" value="1" <?php checked('1', $serp_options['list_current']); ?> />&nbsp;<em><?php _e('Check the box if you want to include the currently viewed Post/Page in the list of Serial Posts.', 'serial-posts' ); ?> <?php _e('Default is CHECKED.', 'serial-posts' ); ?></em>
+	<input name="serial_posts_settings[list-current]" type="checkbox" id="serp-list-current" value="1" <?php checked('1', $serp_options['list-current']); ?> />&nbsp;<em><?php _e('Check the box if you want to include the currently viewed Post/Page in the list of Serial Posts.', 'serial-posts' ); ?> <?php _e('Default is CHECKED.', 'serial-posts' ); ?></em>
 <?php }
 
 
 function serp_link_current_post_field() {
 	global $serp_options;
 ?>
-	<input name="serial_posts_settings[link_current]" type="checkbox" id="serp-link_current" value="1" <?php checked('1', $serp_options['link_current']); ?> />&nbsp;<em><?php _e('If you have checked "Include current post", check this box if you want the current Post/Page to be shown as a link.', 'serial-posts' ); ?> <?php _e('Default is UNCHECKED.', 'serial-posts' ); ?></em>
+	<input name="serial_posts_settings[link-current]" type="checkbox" id="serp-link-current" value="1" <?php checked('1', $serp_options['link-current']); ?> />&nbsp;<em><?php _e('If you have checked "Include current post", check this box if you want the current Post/Page to be shown as a link.', 'serial-posts' ); ?> <?php _e('Default is UNCHECKED.', 'serial-posts' ); ?></em>
 	
 <?php }
