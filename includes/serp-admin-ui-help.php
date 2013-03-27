@@ -217,15 +217,16 @@ function serp_help_styling_list() {
 	<h3><?php _e( 'Serial Posts - Styling List', 'serial-posts' ); ?></h3>
 	
 	<p><?php _e('The plugin outputs the list of Serial Posts with the following XHTML and CSS markup:', 'serial-posts' ); ?></p>
-			<ul>
-				<li><?php _e('The entire list is contained in a &lt;div&gt; which is automatically assigned an ID of "serial-posts-wrapper".', 'serial-posts' ); ?></li>
-				<li><?php _e('A List Heading in &lt;h3&gt; tags assigned a class of "serial-posts-heading".', 'serial-posts' ); ?></li>
+	
+	<ul>
+		<li><?php _e('The entire list is contained in a &lt;div&gt; which is automatically assigned an ID of "serial-posts-wrapper".', 'serial-posts' ); ?></li>
+		<li><?php _e('A List Heading in &lt;h3&gt; tags assigned a class of "serial-posts-heading".', 'serial-posts' ); ?></li>
 				
-				<li><?php _e('You can choose whether to display the list as an unordered list &lt;ul&gt; or ordered list &lt;ol&gt;.', 'serial-posts' ); ?></li>
-				<li><?php _e('Additionally, to allow even greater control over the styling of the list, you may specify a class name for the &lt;ul&gt; or &lt;ol&gt; tag.', 'serial-posts' ); ?></li>
-				<li><?php _e('The &lt;li&gt; tags are automatically assigned a class of "serial-posts-list-item".', 'serial-posts' ); ?></li>
-				<li><?php _e('For full details of the CSS markup automatically added to the XHTML for the Heading and the list of posts please refer to the', 'serial-posts' ); ?> <a href="<?php echo SGR_SERP_HOME; ?>configuration/"><?php _e('Serial Posts Configuration', 'serial-posts' ); ?></a> <?php _e('page', 'serial-posts' ); ?>.</li>
-			</ul>
+		<li><?php _e('You can choose whether to display the list as an unordered list &lt;ul&gt; or ordered list &lt;ol&gt;.', 'serial-posts' ); ?></li>
+		<li><?php _e('Additionally, to allow even greater control over the styling of the list, you may specify a class name for the &lt;ul&gt; or &lt;ol&gt; tag.', 'serial-posts' ); ?></li>
+		<li><?php _e('The &lt;li&gt; tags are automatically assigned a class of "serial-posts-list-item".', 'serial-posts' ); ?></li>
+		<li><?php _e('For full details of the CSS markup automatically added to the XHTML for the Heading and the list of posts please refer to the', 'serial-posts' ); ?> <a href="<?php echo SGR_SERP_HOME; ?>configuration/"><?php _e('Serial Posts Configuration', 'serial-posts' ); ?></a> <?php _e('page', 'serial-posts' ); ?>.</li>
+	</ul>
 
 <?php
 }

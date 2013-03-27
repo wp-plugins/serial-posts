@@ -70,16 +70,24 @@ You can use the Wordpress Automatic Plugin upgrade link in the Dashboard Plugins
 * This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
 
 
-**Support**
------------
-
-This plugin is provided free of charge without warranty.
-
+**Where can I get Support?**
+---------------------------
 Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
 
 If, having read the information linked to above, you cannot solve your issue, or if you find a bug, you can post a message on the plugin's [Support Forum](http://wordpress.org/extend/plugins/serial-posts/).
 
 Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible.
+
+
+**Can I Donate?**
+-----------------
+*Yes, of course you can! You can find a link in the plugin's Settings page. Donations are welcome and much appreciated. Thanks!
+
+
+**Disclaimer**
+--------------
+* This plugin is provided free of charge without warranty.
+
 
 Thanks for downloading the plugin.  Enjoy!
 
@@ -124,6 +132,7 @@ In the Dashboard, go to Settings and open the Serial Posts Configuration page.
 **Show current post as a link**: If you have checked "Include current post", you may check this box if you want the current viewed Post or Page to be shown as a link. Default is UNCHECKED. If you check this box, the currently viewed Post/Page will appear as a link in the Serial Posts list.
 
 That's it!  The Settings Page is now configured.
+
 
 Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
 
@@ -176,9 +185,3 @@ Further information about setting up and using the plugin can be found in the pl
 = 0.9 =
 * Released 17 December 2008
 * Public release
-
-
-
-== Acknowledgements ==
-
-With acknowledgements to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a> whose original code idea inspired this plugin.

@@ -9,7 +9,10 @@ Description: Allows you to assign Posts and Pages to a Serial, using custom fiel
 */
 
 
-/***** Copyright 2008-2013 Ade WALKER <info@studiograsshopper.ch> *****/
+/***** Copyright 2008-2013 Ade WALKER <info@studiograsshopper.ch> *****
+
+With acknowledgements to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a> whose original code idea inspired this plugin.
+*/
 
 
 /***** License information *****
