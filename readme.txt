@@ -95,8 +95,8 @@ That's it!  The Settings Page is now configured.
 
 == Frequently Asked Questions ==
 
-**Why would I want to use this?**
----------------------------------
+**Why would I want to use this plugin?**
+----------------------------------------
 * If you are using WordPress to publish online books or tutorials, and you want to present material (ie your posts) in an "oldest first" form, and you want to do this independant of categories, tags, custom taxonomies etc, then this plugin is for you.
 * A typical usage would be for a story or article published in several "chapters", each chapter being a separate Post. 
 * If you simply want a list of related posts there are much better solutions than this plugin! :-)
@@ -121,9 +121,14 @@ If, having read the information linked to above, you cannot solve your issue, or
 Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible.
 
 
-**Disclaimer**
---------------
-This plugin is provided free of charge without warranty.
+**License and Disclaimer**
+--------------------------
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 2 as published by
+the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+The license for this software can be found here: [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
 
 Thanks for downloading the plugin.  Enjoy!
 
