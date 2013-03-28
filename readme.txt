@@ -118,7 +118,7 @@ Advanced users who, for whatever reason, prefer to use a Template Tag in their t
 
 == Configuring the Settings page ==
  
-In the Dashboard, go to Settings and open the Serial Posts Configuration page.
+In the Dashboard, go to Settings and open the Serial Posts Settings page.
 
 **List Display options**. This is where you can customise the Serial Posts heading and list of posts. The Heading is made up of three elements: "Text before Serial name" "Serial Name" "Text after Serial name". 
 
@@ -140,6 +140,11 @@ That's it!  The Settings Page is now configured.
 
 
 Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
+
+
+== Serial Posts list XHTML markup ==
+
+Please refer to the plugin's Contextual Help for an overview of the list markup. More detailed information can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/).
 
 
 
