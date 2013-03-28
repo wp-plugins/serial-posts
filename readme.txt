@@ -53,21 +53,22 @@ You can use the Wordpress Automatic Plugin upgrade link in the Dashboard Plugins
 
 == Frequently Asked Questions ==
 
-**Why would I want to use this?**
----------------------------------
+**Why would I want to use this plugin?**
+----------------------------------------
 * If you are using WordPress to publish online books or tutorials, and you want to present material (ie your posts) in an "oldest first" form, and you want to do this independant of categories, tags, custom taxonomies etc, then this plugin is for you.
-* A typical usage would be for a story or article published in several "chapters", each chapter being a separate Post. 
+* A typical usage would be for a story or article published in several "chapters", each chapter being a separate Post.
+* The main feature of teh plugin is that it creates a list of Posts, which belong to the same Serial, on the single post page of relevant Posts.
 * If you simply want a list of related posts there are much better solutions than this plugin! :-)
 
 
 **Can I create more than one Serial?**
 --------------------------------------
-* Yes, you can create as many different Serials as you wish. However, you cannot assign a Post or a Page to more than one Serial. 
+Yes, you can create as many different Serials as you wish. However, you cannot assign a Post or a Page to more than one Serial. 
 
 
 **Why is the list of Posts displayed with oldest at the top of the list?**
 --------------------------------------------------------------------------
-* This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
+This is intentional so that each post appears like a chapter in a book or a serial - which is the whole point of the plugin in the first place.
 
 
 **Where can I get Support?**
@@ -81,13 +82,17 @@ Support is provided in my free time but every effort will be made to respond to 
 
 **Can I Donate?**
 -----------------
-*Yes, of course you can! You can find a link in the plugin's Settings page. Donations are welcome and much appreciated. Thanks!
+Yes, of course you can! You can find a link in the plugin's Settings page. Donations are welcome and much appreciated. Thanks!
 
 
-**Disclaimer**
---------------
-* This plugin is provided free of charge without warranty.
+**License and Disclaimer**
+--------------------------
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 2 as published by
+the Free Software Foundation.
 
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+The license for this software can be found here: [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
 
 Thanks for downloading the plugin.  Enjoy!
 
