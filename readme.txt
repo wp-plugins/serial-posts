@@ -47,51 +47,6 @@ Comprehensive information on installing, configuring and using the plugin can be
 You can use the Wordpress Automatic Plugin upgrade link in the Admin Plugins menu to automatically upgrade the plugin. 
 
 
-== Instructions for use ==
-
-
-== Using the plugin == 
-
-The plugin provides two methods for inserting the list of Serial Posts in a page: a shortcode and a template tag, either of which may be used. It is recommended that you use one or the other, but not both, in accordance with your needs and preferences.
-
-**Template tag:** Add this template tag to, typically, your single post theme template file, usually single.php or index.php, wherever you want to display the list of Posts/Pages. This tag must appear within the Loop.
-
-&lt;?php serial_posts(); ?&gt;
-
-**Shortcode:** Add this shortcode directly into the post editor when writing or editing a Post or Page.
-
-[serialposts]
-
-
-== Configuration and set-up ==
-
-
-Further information can be found at http://www.studiograsshopper.ch/serial-posts/configuration/ and a comprehensive "how to" at http://www.studiograsshopper.ch/serial-posts/tutorial/
-
-
-**Configuring the Options page**
---------------------------------
- 
-In the Dashboard, go to Settings and open the Serial Posts Configuration page.
-
-**List Display options**. This is where you can customise the Serial Posts heading and list of posts. The Heading is made up of three elements: "Text before Serial name" "Serial Name" "Text after Serial name". 
-
-**Text before Serial name**: Enter the text that you would like to appear in the Heading BEFORE the Serial name. If you don't want to show any text before the Serial name, just blank out the field before saving your settings.
-
-**Text after Serial name**: Enter the text that you would like to appear in the Heading AFTER the Serial name. If you don't want to show any text after the Serial name, just blank out the field before saving your settings.
-
-**Hide Serial Name**: By default, the Serial Name always appears in the Heading. Check this box to prevent display of the Serial Name in the Heading. Note: checking this option will also hide the "Text after Serial name".
-
-**List type &lt;ul&gt; or &lt;ol&gt;**: Select either unordered list &lt;ul&gt; or ordered list &lt;ol&gt; from the dropdown.
-
-**List &lt;ul&gt;/&lt;ol&gt; class**: To allow even greater control over the styling of the list, you may specify a class name for the list's &lt;ul&gt; or &lt;ol&gt; tag. The default is "serial-posts". Note that the plugin replaces any whitespace with hyphens.
-
-**Include current post**: Check the box if you want to include the currently viewed Post/Page in the list of Serial Posts. Default is CHECKED. If you uncheck this box, the currently viewed Post/Page will not appear in the Serial Posts list.
-
-**Show current post as a link**: If you have checked "Include current post", you may check this box if you want the current viewed Post or Page to be shown as a link. Default is UNCHECKED. If you check this box, the currently viewed Post/Page will appear as a link in the Serial Posts list.
-
-That's it!  The Settings Page is now configured.
-
 
 == Frequently Asked Questions ==
 
@@ -133,6 +88,54 @@ The license for this software can be found here: [http://www.gnu.org/licenses/gp
 Thanks for downloading the plugin.  Enjoy!
 
 
+
+== Using the plugin == 
+
+To illustrate a typical usage of the plugin, let's imagine that you are writing a short novel and publishing it a chapter at a time, each chapter being a separate Post.
+
+In each Post (ie chapter, to use the example above), create a custom field called Serial, with a value of "story" (without the quotes, of course).
+
+Then, insert the shortcode [serialposts] at the bottom of your Post content in the Write Post/Page editor.
+
+Now, when you view any of the "chapters", you will see the list of Serial Posts at the bottom of each "chapter" Post. This gives your readers a great way of navigating from one "chapter" to the next.
+
+The display of the Serial Posts list can be customised in the plugin's Settings page (see the *Configuring the Settings page* section below).
+
+Advanced users who, for whatever reason, prefer to use a Template Tag in their theme templates rather than the shortcode in the Post/Page Editor, can use the Serial Posts Template Tag:
+
+&lt;?php serial_posts(); ?&gt;
+
+
+== Configuration and set-up ==
+
+
+Further information can be found in a comprehensive "how to" at http://www.studiograsshopper.ch/serial-posts/tutorial/
+
+
+== Configuring the Settings page ==
+ 
+In the Dashboard, go to Settings and open the Serial Posts Settings page.
+
+* **List Display options**. This is where you can customise the Serial Posts heading and list of posts. The Heading is made up of three elements: "Text before Serial name" "Serial Name" "Text after Serial name". 
+
+* **Text before Serial name**: Enter the text that you would like to appear in the Heading BEFORE the Serial name. If you don't want to show any text before the Serial name, just blank out the field before saving your settings.
+
+* **Text after Serial name**: Enter the text that you would like to appear in the Heading AFTER the Serial name. If you don't want to show any text after the Serial name, just blank out the field before saving your settings.
+
+* **Hide Serial Name**: By default, the Serial Name always appears in the Heading. Check this box to prevent display of the Serial Name in the Heading. Note: checking this option will also hide the "Text after Serial name".
+
+* **List type &lt;ul&gt; or &lt;ol&gt;**: Select either unordered list &lt;ul&gt; or ordered list &lt;ol&gt; from the dropdown.
+
+* **List &lt;ul&gt;/&lt;ol&gt; class**: To allow even greater control over the styling of the list, you may specify a class name for the list's &lt;ul&gt; or &lt;ol&gt; tag. The default is "serial-posts". Note that the plugin replaces any whitespace with hyphens.
+
+* **Include current post**: Check the box if you want to include the currently viewed Post/Page in the list of Serial Posts. Default is CHECKED. If you uncheck this box, the currently viewed Post/Page will not appear in the Serial Posts list.
+
+* **Show current post as a link**: If you have checked "Include current post", you may check this box if you want the current viewed Post or Page to be shown as a link. Default is UNCHECKED. If you check this box, the currently viewed Post/Page will appear as a link in the Serial Posts list.
+
+That's it!  The Settings Page is now configured.
+
+
+
 == Changelog ==
 
 = 1.2.2 =
@@ -171,9 +174,3 @@ Thanks for downloading the plugin.  Enjoy!
 = 0.9 =
 * Released 17 December 2008
 * Public release
-
-
-
-== Acknowledgements ==
-
-With acknowledgements to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a> whose original code idea inspired this plugin.
