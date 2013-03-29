@@ -146,7 +146,7 @@ function serial_posts_build() {
 						
 			/* Create the list heading */
 			/* Is the Serial name to be hidden from the list heading ? */
-			if ( $serp_options['hide-serial-name'] == "0" ) { // Serial Name is to be displayed
+			if ( isset( $serp_options['hide-serial-name'] ) && $serp_options['hide-serial-name'] == "0" ) { // Serial Name is to be displayed
 				$heading = '<h3 class="' . $serial_css_head . '">' . $pre_text . $pre_spacer . $serial_name . $post_spacer . $post_text . '</h3>' . "\n";
 			} else { // Serial name is to be hidden
 				$heading = '<h3>' . $pre_text . '</h3>' . "\n";
@@ -161,7 +161,7 @@ function serial_posts_build() {
 			/* Populate the post list array using the output of the wpdb query */
 			foreach ($findposts as $findpost):
 				
-				if ( ( ( $findpost->ID ) == $id ) && ( $serp_options['link-current'] == "1" ) ) {
+				if ( ( ( $findpost->ID ) == $id ) && isset($serp_options['link-current']) && ( $serp_options['link-current'] == "1" ) ) {
 					
 					// we have the current post and link is to be shown
 					$list_li[] = '<li class="' . $serial_css_list . ' current-active"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' . $findpost->post_title . '</a></li>' . "\n";
