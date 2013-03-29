@@ -60,7 +60,7 @@ You can use the Wordpress Automatic Plugin upgrade link in the Dashboard Plugins
 ----------------------------------------
 * If you are using WordPress to publish online books or tutorials, and you want to present material (ie your posts) in an "oldest first" form, and you want to do this independant of categories, tags, custom taxonomies etc, then this plugin is for you.
 * A typical usage would be for a story or article published in several "chapters", each chapter being a separate Post.
-* The main feature of teh plugin is that it creates a list of Posts, which belong to the same Serial, on the single post page of relevant Posts.
+* The main feature of the plugin is that it creates a list of Posts, which belong to the same Serial, on the single post page of relevant Posts.
 * If you simply want a list of related posts there are much better solutions than this plugin! :-)
 
 
@@ -147,7 +147,7 @@ Further information about using the plugin can be found in the [Serial Posts Tut
 
 == Serial Posts list XHTML markup ==
 
-Please refer to the plugin's Contextual Help for an overview of the list markup. More detailed information can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/).
+Please refer to the plugin's Contextual Help for an overview of the list markup. More detailed information can be found in the plugin's [List Markup Guide](http://www.studiograsshopper.ch/serial-posts/list-markup-guide/).
 
 
 
