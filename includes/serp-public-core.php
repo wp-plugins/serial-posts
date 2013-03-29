@@ -60,10 +60,13 @@ function serp_shortcode() {
  * Pulls associated posts/pages from db if a Serial name has been assigned to the post/page
  *
  * @since 0.9
+ * @updated 1.3
  */
 function serial_posts_build() {
 	
-	global $id, $post, $serp_options;
+	global $id, $post;
+	
+	$serp_options = get_option( 'serial_posts_settings' );
 	
 	/* Check if current post is a member of a series
 	and get serial_name of current post */
@@ -84,7 +87,7 @@ function serial_posts_build() {
 		/* Instantiate the wpdb object */
 		global $wpdb;
 	
-		if ( $serp_options['list_current'] == "0" ) {
+		if ( $serp_options['list-current'] == "0" ) {
 			/* Do the query excluding current post */
 			$findposts = $wpdb->get_results(
 				$wpdb->prepare(
@@ -123,9 +126,9 @@ function serial_posts_build() {
 			/* Reset variable to empty */
 			$pre_text = '';
 			/* Has any pre-text been defined? */
-			if ( $serp_options['pre_text'] !='' ) { // We have pre-text, therefore create a spacer and get the pre-text
+			if ( $serp_options['pre-text'] !='' ) { // We have pre-text, therefore create a spacer and get the pre-text
 				$pre_spacer = '&nbsp;';
-				$pre_text = '<span class="serial-pre-text">' . stripslashes($serp_options['pre_text']) . '</span>';
+				$pre_text = '<span class="serial-pre-text">' . stripslashes($serp_options['pre-text']) . '</span>';
 			}
 			
 			/* Create XHTML markup for the Serial name itself */
@@ -133,9 +136,9 @@ function serial_posts_build() {
 			
 			/* Has any post-text been defined? */
 			$post_text = '';
-			if ( $serp_options['post_text'] !='' ) { // We have post-text, therefore create a spacer and get the post-text
+			if ( $serp_options['post-text'] !='' ) { // We have post-text, therefore create a spacer and get the post-text
 				$post_spacer = '&nbsp;';
-				$post_text = '<span class="serial-post-text">' . stripslashes($serp_options['post_text']) . '</span>';
+				$post_text = '<span class="serial-post-text">' . stripslashes($serp_options['post-text']) . '</span>';
 			}
 			
 			/* Create the div container for the list and give it a CSS ID name of the Serial name */
@@ -143,14 +146,14 @@ function serial_posts_build() {
 						
 			/* Create the list heading */
 			/* Is the Serial name to be hidden from the list heading ? */
-			if ( $serp_options['hide_serial_name'] == "0" ) { // Serial Name is to be displayed
+			if ( $serp_options['hide-serial-name'] == "0" ) { // Serial Name is to be displayed
 				$heading = '<h3 class="' . $serial_css_head . '">' . $pre_text . $pre_spacer . $serial_name . $post_spacer . $post_text . '</h3>' . "\n";
 			} else { // Serial name is to be hidden
 				$heading = '<h3>' . $pre_text . '</h3>' . "\n";
 			}
 			
 			/* Create the ul container for the list */
-			$list_ul = '<'. $serial_css_type .' class="' . $serp_options['ul_class'] . '">' . "\n";
+			$list_ul = '<'. $serial_css_type .' class="' . $serp_options['ul-class'] . '">' . "\n";
 			
 			/* Create the post list as an array */
 			$list_li = array();
@@ -158,7 +161,7 @@ function serial_posts_build() {
 			/* Populate the post list array using the output of the wpdb query */
 			foreach ($findposts as $findpost):
 				
-				if ( ( ( $findpost->ID ) == $id ) && ( $serp_options['link_current'] == "1" ) ) {
+				if ( ( ( $findpost->ID ) == $id ) && ( $serp_options['link-current'] == "1" ) ) {
 					
 					// we have the current post and link is to be shown
 					$list_li[] = '<li class="' . $serial_css_list . ' current-active"><a href="' . get_permalink($findpost->ID) . '" title="' . $findpost->post_title . '">' . $findpost->post_title . '</a></li>' . "\n";

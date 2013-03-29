@@ -333,7 +333,7 @@ function serp_default_options() {
  *
  * ver 1.2.2 - No change
  *
- * ver 1.3 - No change
+ * ver 1.3 - Renamed all db options
  *
  * @since 1.1
  *
