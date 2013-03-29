@@ -139,7 +139,7 @@ In the Dashboard, go to Settings and open the Serial Posts Settings page.
 That's it!  The Settings Page is now configured.
 
 
-Further information about setting up and using the plugin can be found in the plugin's [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/) and a comprehensive [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
+Further information about using the plugin can be found in the [Serial Posts Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/).
 
 
 == Serial Posts list XHTML markup ==
@@ -158,6 +158,7 @@ Please refer to the plugin's Contextual Help for an overview of the list markup.
 * Enhance: Moved all file includes and add_action/add_filter calls to _init function
 * Enhance: Removed the plugin's own admin CSS/JS. It was unnecessary to have this.
 * Feature: Detailed Contextual Help now added to the plugin's Settings page.
+* Bug fix: Fixed undefined index warnings when outputting list
 
 = 1.2.2 =
 * Released 4 January 2012

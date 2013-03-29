@@ -450,8 +450,8 @@ function serp_load_options() {
 	}
 
 
-	/***** Upgrade to 1.2.3 from 1.2.2 *****/
-	if ( version_compare( $version, '1.2.3', '<' ) ) {
+	/***** Upgrade to 1.3 from 1.2.2 *****/
+	if ( version_compare( $version, '1.3', '<' ) ) {
 
 		$existing = get_option( 'serial_posts_settings' );
 		$legacy = get_option( 'serp_plugin_settings' );
@@ -483,12 +483,6 @@ function serp_load_options() {
 		update_option( 'serial_posts_settings', $updated );
 	}
 	
-	
-	/***** Upgrade to 1.3 from 1.2.3 *****/
-	if ( version_compare( $version, '1.3', '<' ) ) {
-
-		// No changes
-	}
 
 	// FINALLY, Update version no. in the db
 	update_option( 'serial_posts_version', SGR_SERP_VER );

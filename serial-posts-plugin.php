@@ -45,6 +45,7 @@ Feature:	means new user functionality has been added
 * Enhance:	Moved all file includes and add_action/add_filter calls to _init function
 * Enhance:	Removed the plugin's own admin CSS/JS. It was unnecessary to have this.
 * Feature:	Detailed Contextual Help now added to the plugin's Settings page.
+* Bug fix:	Fixed undefined index warnings when outputting list
 
 = 1.2.2 =
 * Bug fix:	Fixed reset notice from appearing when it shouldn't
