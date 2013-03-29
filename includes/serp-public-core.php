@@ -59,7 +59,9 @@ function serp_shortcode() {
 */
 function serial_posts_build() {
 	
-	global $id, $post, $serp_options;
+	global $id, $post;
+	
+	$serp_options = get_option( 'serial_posts_settings' );
 	
 	/* Check if current post is a member of a series
 	and get serial_name of current post */
