@@ -11,6 +11,7 @@
  * register_settings() callback function.
  *
  * @since 1.1
+ * @updated 1.3
  */
 
 /* Prevent direct access to this file */
@@ -88,7 +89,7 @@ function serp_sanitise($input) {
 	
 	/***** On-off options (3) *****/
 	
-	$onoff_opts = array( 'list_current', 'link_current', 'hide_serial_name' );
+	$onoff_opts = array( 'list-current', 'link-current', 'hide-serial-name' );
 	
 	// sanitise, cast as 1 or 0, eg checkboxes
 	foreach( $onoff_opts as $key ) {
@@ -108,7 +109,7 @@ function serp_sanitise($input) {
 	
 	/***** String options - no XHTML allowed (2) *****/
 	
-	$str_opts_no_html = array( 'pre_text', 'post_text' );
+	$str_opts_no_html = array( 'pre-text', 'post-text' );
 	
 	// sanitise
 	foreach( $str_opts_no_html as $key ) {
@@ -118,7 +119,7 @@ function serp_sanitise($input) {
 	
 	/***** String options - no invalid CSS class characters (1) *****/
 	
-	$str_opts_css = array( 'ul_class' );
+	$str_opts_css = array( 'ul-class' );
 	
 	// sanitise
 	foreach( $str_opts_css as $key ) {
