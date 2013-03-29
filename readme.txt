@@ -33,6 +33,7 @@ The Serial Posts plugin allows you to assign a Serial name to your Posts and Pag
 **Further information**
 -----------------------
 Comprehensive information on configuring and using the plugin can be found here:
+
 * [Configuration Guide](http://www.studiograsshopper.ch/serial-posts/configuration/)
 * [Tutorial](http://www.studiograsshopper.ch/serial-posts/tutorial/)
 
