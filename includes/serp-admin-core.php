@@ -293,18 +293,19 @@ function serp_wp_version_check() {
  * 8 options
  *
  * @since 0.9
+ * @updated 1.3
  * 
  * @return array $defaults, array of default settings for use by the plugin.
  */
 function serp_default_options() {
 	
 	$defaults = array(
-		'pre_text' => 'You are reading',
-		'post_text' => 'Read more from this series of articles.',
-		'ul_class' => 'serial-posts',
-		'list_current' => '1',
-		'link_current' => '0',
-		'hide_serial_name' => '0',
+		'pre-text' => 'You are reading',
+		'post-text' => 'Read more from this series of articles.',
+		'ul-class' => 'serial-posts',
+		'list-current' => '1',
+		'link-current' => '0',
+		'hide-serial-name' => '0',
 		'just-reset' => 'false',
 		'list-type' => 'ul'	// Options are ul or ol
 	);
@@ -386,7 +387,7 @@ function serp_load_options() {
 	/***** Logic check in case $version doesn't exist but there are $existing *****/
 	
 	if( empty( $version ) && $existing ) {
-		$existing_version = '1.0'; // Force upgrades to be run
+		$version = '1.0'; // Force upgrades to be run
 	}
 
 

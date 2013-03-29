@@ -158,7 +158,8 @@ Please refer to the plugin's Contextual Help for an overview of the list markup.
 * Enhance: Moved all file includes and add_action/add_filter calls to _init function
 * Enhance: Removed the plugin's own admin CSS/JS. It was unnecessary to have this.
 * Feature: Detailed Contextual Help now added to the plugin's Settings page.
-* Bug fix: Fixed undefined index warnings when outputting list
+* Bug fix: Fixed undefined index warnings when outputting list (get_option call missing)
+* Bug fix: Added isset() checks to checkbox optiosn when outputting list, to avoid undefined index errors
 
 = 1.2.2 =
 * Released 4 January 2012
