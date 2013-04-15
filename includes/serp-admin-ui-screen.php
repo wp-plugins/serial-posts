@@ -5,7 +5,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2013
  * @package serial_posts
- * @version 1.3
+ * @version 1.3.1
  *
  * Options page
  *

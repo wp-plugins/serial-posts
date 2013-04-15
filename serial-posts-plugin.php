@@ -2,7 +2,7 @@
 /*
 Plugin Name: Serial Posts Plugin
 Plugin URI: http://www.studiograsshopper.ch/serial-posts/
-Version: 1.3
+Version: 1.3.1
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Allows you to assign Posts and Pages to a Serial, using custom fields, and then displays a list of all Posts/Pages assigned to the same Serial.
@@ -37,6 +37,10 @@ Feature:	means new user functionality has been added
 */
 
 /***** Version History *****
+
+= 1.3.1 =
+* Bug fix:	Fix undefined constant to prevent "unexpected characters" error message on activation
+* Bug fix:	Fix Serial Posts list Heading logic in serial_posts_build()
 
 = 1.3 =
 * Enhance:	Code re-write to improve organisation of functions, etc, updated code docs
@@ -113,7 +117,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /* Set constants for plugin */
 define( 'SGR_SERP_URL',				WP_PLUGIN_URL.'/serial-posts' );
 define( 'SGR_SERP_DIR',				WP_PLUGIN_DIR.'/serial-posts' );
-define( 'SGR_SERP_VER',				'1.3' );
+define( 'SGR_SERP_VER',				'1.3.1' );
 define( 'SGR_SERP_WP_VERSION_REQ',	'3.3' );
 define( 'SGR_SERP_FILE_NAME',		'serial-posts/serial-posts-plugin.php' );
 define( 'SGR_SERP_FILE_HOOK',		'serial_posts' );
@@ -132,16 +136,17 @@ register_activation_hook( __FILE__, 'serp_activation' );
  * @uses network_admin_url(), as this fallbacks to admin_url() if no multisite
  *
  * @since 1.3
+ * @updated 1.3.1
  */
 function serp_activation() {
 	
-	$wp_valid = version_compare( get_bloginfo( "version" ), SERP_WP_VERSION_REQ, '>=' );
+	$wp_valid = version_compare( get_bloginfo( "version" ), SGR_SERP_WP_VERSION_REQ, '>=' );
 	
 	if ( ! $wp_valid ) {
         
         deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
         
-        $message = sprintf( __('Sorry, this version of the Serial Posts plugin requires WordPress %s or greater.' ), SERP_WP_VERSION_REQ );
+        $message = sprintf( __('Sorry, this version of the Serial Posts plugin requires WordPress %s or greater.' ), SGR_SERP_WP_VERSION_REQ );
 		
 		wp_die( $message, 'Serial Posts plugin', array( 'back_link' => true ) );
 	}

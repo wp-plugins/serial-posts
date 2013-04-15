@@ -5,7 +5,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2013
  * @package serial_posts
- * @version 1.3
+ * @version 1.3.1
  *
  * These are the 'public' functions which produce the Serial Posts lists in the front end
  * Defines template tag - serial_posts()
@@ -60,7 +60,7 @@ function serp_shortcode() {
  * Pulls associated posts/pages from db if a Serial name has been assigned to the post/page
  *
  * @since 0.9
- * @updated 1.3
+ * @updated 1.3.1
  */
 function serial_posts_build() {
 	
@@ -71,7 +71,7 @@ function serial_posts_build() {
 	/* Check if current post is a member of a series
 	and get serial_name of current post */
 	/* TO DO: Deal with a post/page being assigned to more than one Serial */
-	$serial_name = get_post_meta($id, 'Serial', true);
+	$serial_name = get_post_meta( $post->ID, 'Serial', true );
 	
 	/* If we have a Serial assigned to this post, let's do our stuff */
 	if ( $serial_name ) {
@@ -99,7 +99,7 @@ function serial_posts_build() {
 				AND $wpdb->posts.post_status = %s
 				AND $wpdb->postmeta.post_id != %d
 				ORDER BY $wpdb->posts.post_date ASC",
-				'Serial', $serial_name, 'publish', $id
+				'Serial', $serial_name, 'publish', $post->ID
 				)
 			);
 		} else {
@@ -123,19 +123,25 @@ function serial_posts_build() {
 			
 			/* Get the admin defined parts of the list heading and build the
 			elements and XHTML markup for the list heading elements */
-			/* Reset variable to empty */
+			
+			/* Reset variables to empty */
 			$pre_text = '';
+			$pre_spacer = '';
+			$serial = '';
+			$post_spacer = '&nbsp;';
+			$post_text = '';
+			
 			/* Has any pre-text been defined? */
 			if ( $serp_options['pre-text'] !='' ) { // We have pre-text, therefore create a spacer and get the pre-text
 				$pre_spacer = '&nbsp;';
-				$pre_text = '<span class="serial-pre-text">' . stripslashes($serp_options['pre-text']) . '</span>';
+				$pre_text = '<span class="serial-pre-text">' . stripslashes($serp_options['pre-text']) . $pre_spacer . '</span>';
 			}
 			
 			/* Create XHTML markup for the Serial name itself */
-			$serial_name = '<span class="serial-name">' . $serial_name . '</span>';
+			if ( $serp_options['hide-serial-name'] == "0" )
+				$serial = '<span class="serial-name">' . $serial_name . $post_spacer . '</span>';
 			
 			/* Has any post-text been defined? */
-			$post_text = '';
 			if ( $serp_options['post-text'] !='' ) { // We have post-text, therefore create a spacer and get the post-text
 				$post_spacer = '&nbsp;';
 				$post_text = '<span class="serial-post-text">' . stripslashes($serp_options['post-text']) . '</span>';
@@ -145,12 +151,7 @@ function serial_posts_build() {
 			$div = '<div id="' . $serial_css_div . '">' . "\n";
 						
 			/* Create the list heading */
-			/* Is the Serial name to be hidden from the list heading ? */
-			if ( isset( $serp_options['hide-serial-name'] ) && $serp_options['hide-serial-name'] == "0" ) { // Serial Name is to be displayed
-				$heading = '<h3 class="' . $serial_css_head . '">' . $pre_text . $pre_spacer . $serial_name . $post_spacer . $post_text . '</h3>' . "\n";
-			} else { // Serial name is to be hidden
-				$heading = '<h3>' . $pre_text . '</h3>' . "\n";
-			}
+			$heading = '<h3 class="' . $serial_css_head . '">' . $pre_text . $serial . $post_text . '</h3>' . "\n";
 			
 			/* Create the ul container for the list */
 			$list_ul = '<'. $serial_css_type .' class="' . $serp_options['ul-class'] . '">' . "\n";

@@ -1,6 +1,6 @@
 === Serial Posts ===
 
-Version: 1.3
+Version: 1.3.1
 Author: Ade Walker, Studiograsshopper
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/serial-posts/
@@ -153,6 +153,11 @@ Please refer to the plugin's Contextual Help for an overview of the list markup.
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Released 15 April 2013
+* Bug fix: Fix undefined constant to prevent "unexpected characters" error message on activation
+* Bug fix: Fix Serial Posts list Heading logic in serial_posts_build()
 
 = 1.3 =
 * Released 29 March 2013

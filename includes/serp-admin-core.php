@@ -5,7 +5,7 @@
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
  * @copyright Copyright 2008-2013
  * @package serial_posts
- * @version 1.3
+ * @version 1.3.1
  *
  * Core Admin Functions called by various add_filters and add_actions:
  * - Load textdomain
@@ -337,6 +337,7 @@ function serp_default_options() {
  * ver 1.3 - Renamed all db options
  *
  * @since 1.1
+ * @updated 1.3.1
  *
  * @uses serp_default_options()
  */
@@ -482,6 +483,13 @@ function serp_load_options() {
 		$updated = wp_parse_args( $existing, $new_opts );
 
 		update_option( 'serial_posts_settings', $updated );
+	}
+	
+	
+	/***** Upgrade to 1.3.1 from 1.3 *****/
+	if ( version_compare( $version, '1.3.1', '<' ) ) {
+
+		// No changes
 	}
 	
 
