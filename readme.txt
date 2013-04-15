@@ -7,7 +7,7 @@ Plugin page: http://www.studiograsshopper.ch/serial-posts/
 Tags: posts,series,serial,related,post listings,custom
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. 
 
