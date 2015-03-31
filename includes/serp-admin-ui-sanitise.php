@@ -3,9 +3,9 @@
  * Sanitisation callback for Settings
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2013
+ * @copyright Copyright 2008-2015
  * @package serial_posts
- * @version 1.3.1
+ * @version 1.3.2
  *
  * Sanitise Settings screen Options input.
  * register_settings() callback function.

@@ -3,9 +3,9 @@
  * Uninstalls plugin's options when the plugin is deleted
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2013
+ * @copyright Copyright 2008-2015
  * @package serial_posts
- * @version 1.3.1
+ * @version 1.3.2
  *
  *
  * Removes options from db when plugin is deleted in Dashboard>Plugins

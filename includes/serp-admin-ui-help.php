@@ -3,9 +3,9 @@
  * Contextual Help for SP admin page
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2013
+ * @copyright Copyright 2008-2015
  * @package serial_posts
- * @version 1.3.1
+ * @version 1.3.2
  *
  * @info Uses new Screens API introduced in WP 3.3
  *

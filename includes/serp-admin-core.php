@@ -3,9 +3,9 @@
  * Admin Core functions - this is the parent file that handles all the backend
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2013
+ * @copyright Copyright 2008-2015
  * @package serial_posts
- * @version 1.3.1
+ * @version 1.3.2
  *
  * Core Admin Functions called by various add_filters and add_actions:
  * - Load textdomain
@@ -336,8 +336,12 @@ function serp_default_options() {
  *
  * ver 1.3 - Renamed all db options
  *
+ * ver 1.3.1 - No change
+ *
+ * ver 1.3.2 - No change
+ *
  * @since 1.1
- * @updated 1.3.1
+ * @updated 1.3.2
  *
  * @uses serp_default_options()
  */
@@ -488,6 +492,13 @@ function serp_load_options() {
 	
 	/***** Upgrade to 1.3.1 from 1.3 *****/
 	if ( version_compare( $version, '1.3.1', '<' ) ) {
+
+		// No changes
+	}
+	
+	
+	/***** Upgrade to 1.3.2 from 1.3.1 *****/
+	if ( version_compare( $version, '1.3.2', '<' ) ) {
 
 		// No changes
 	}

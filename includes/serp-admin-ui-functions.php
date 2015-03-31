@@ -3,9 +3,9 @@
  * Settings page contents - Settings API callbacks
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2013
+ * @copyright Copyright 2008-2015
  * @package serial_posts
- * @version 1.3.1
+ * @version 1.3.2
  *
  * These are the functions which produce the UI postboxes for the Settings page.
  * These functions are called by Settings API add_settings_section() and add_settings_field()

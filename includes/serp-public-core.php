@@ -3,9 +3,9 @@
  * SP Front End functions for displaying the SP Lists
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2008-2013
+ * @copyright Copyright 2008-2015
  * @package serial_posts
- * @version 1.3.1
+ * @version 1.3.2
  *
  * These are the 'public' functions which produce the Serial Posts lists in the front end
  * Defines template tag - serial_posts()
@@ -119,7 +119,7 @@ function serial_posts_build() {
 		}
 		
 		/* Build the list elements */
-		if ($findposts):
+		if ( $findposts ):
 			
 			/* Get the admin defined parts of the list heading and build the
 			elements and XHTML markup for the list heading elements */

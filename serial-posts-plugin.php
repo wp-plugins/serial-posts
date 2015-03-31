@@ -2,14 +2,14 @@
 /*
 Plugin Name: Serial Posts Plugin
 Plugin URI: http://www.studiograsshopper.ch/serial-posts/
-Version: 1.3.1
+Version: 1.3.2
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Allows you to assign Posts and Pages to a Serial, using custom fields, and then displays a list of all Posts/Pages assigned to the same Serial.
 */
 
 
-/***** Copyright 2008-2013 Ade WALKER <info@studiograsshopper.ch> *****
+/***** Copyright 2008-2015 Ade WALKER <info@studiograsshopper.ch> *****
 
 With acknowledgements to <a href="http://justintadlock.com" title="Justin Tadlock">Justin Tadlock</a> whose original code idea inspired this plugin.
 */
@@ -37,6 +37,10 @@ Feature:	means new user functionality has been added
 */
 
 /***** Version History *****
+
+= 1.3.2 =
+* Bug fix:	Cleaned up some code
+* Enhance:	Updated readme for tested WP compatibility
 
 = 1.3.1 =
 * Bug fix:	Fix undefined constant to prevent "unexpected characters" error message on activation
@@ -117,7 +121,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /* Set constants for plugin */
 define( 'SGR_SERP_URL',				WP_PLUGIN_URL.'/serial-posts' );
 define( 'SGR_SERP_DIR',				WP_PLUGIN_DIR.'/serial-posts' );
-define( 'SGR_SERP_VER',				'1.3.1' );
+define( 'SGR_SERP_VER',				'1.3.2' );
 define( 'SGR_SERP_WP_VERSION_REQ',	'3.3' );
 define( 'SGR_SERP_FILE_NAME',		'serial-posts/serial-posts-plugin.php' );
 define( 'SGR_SERP_FILE_HOOK',		'serial_posts' );
