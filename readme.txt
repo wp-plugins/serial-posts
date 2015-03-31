@@ -1,6 +1,6 @@
 === Serial Posts ===
 
-Version: 1.3.1
+Version: 1.3.2
 Author: Ade Walker
 Author page: http://www.studiograsshopper.ch
 Contributors: studiograsshopper
@@ -8,7 +8,7 @@ Plugin page: http://www.studiograsshopper.ch/serial-posts/
 Donate link: http://www.studiograsshopper.ch/serial-posts/
 Tags: posts,series,serial,related,post listings,custom
 Requires at least: 3.3
-Tested up to: 3.7
+Tested up to: 4.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Stable tag: 1.3.1
@@ -157,6 +157,11 @@ Please refer to the plugin's Contextual Help for an overview of the list markup.
 
 
 == Changelog ==
+
+= 1.3.2 =
+* Released 31 March 2015
+* Bug fix: Cleaned up some code
+* Enhance: Updated readme re tested WP version compatibility
 
 = 1.3.1 =
 * Released 15 April 2013

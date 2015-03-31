@@ -40,7 +40,7 @@ Feature:	means new user functionality has been added
 
 = 1.3.2 =
 * Bug fix:	Cleaned up some code
-* Enhance:	Updated readme for tested WP compatibility
+* Enhance:	Updated readme re tested WP version compatibility
 
 = 1.3.1 =
 * Bug fix:	Fix undefined constant to prevent "unexpected characters" error message on activation
