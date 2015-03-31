@@ -11,7 +11,7 @@ Requires at least: 3.3
 Tested up to: 4.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 
 Allows you to assign Posts or Pages to a Serial, using custom fields, and then displays a list of all Posts and Pages assigned to the same Serial. 
 
